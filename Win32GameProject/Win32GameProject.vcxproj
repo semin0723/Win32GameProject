@@ -131,10 +131,12 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Vector3.h" />
     <ClInclude Include="Win32GameProject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="Win32GameProject.cpp" />
   </ItemGroup>
   <ItemGroup>

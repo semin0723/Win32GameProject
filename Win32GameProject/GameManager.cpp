@@ -132,7 +132,7 @@ namespace game
 	}
 	void GameManager::Finalize()
 	{
-		/*render::ReleaseRender();*/
+		RenderSystem::DestroyInstance();
 	}
 	void GameManager::Run()
 	{

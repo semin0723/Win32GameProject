@@ -30,19 +30,28 @@ void RenderSystem::DestroyInstance() {
 	}
 }
 
-void RenderSystem::DrawBitMap(const int x, const int y, const int id) {
+void RenderSystem::DrawBitMap(const HDC _dc, const int x, const int y, const int id) {
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP Bitmapinfo;
+	HDC backDC = CreateCompatibleDC(_dc);
 	int bmWidth, bmHeight;
 	MainBitmap = LoadBitmap(RenderSystem::GetInstance()->_hInstance, MAKEINTRESOURCE(id));
 	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&Bitmapinfo);
 	bmWidth = Bitmapinfo.bmWidth;
 	bmHeight = Bitmapinfo.bmHeight;
 
-	OldBitmap = (HBITMAP)SelectObject(RenderSystem::GetInstance()->_hdc, MainBitmap);
-	BitBlt(RenderSystem::GetInstance()->_hdc, 
-		x - bmWidth / 2, y - bmHeight / 2, bmWidth, bmHeight, 
-		RenderSystem::GetInstance()->_backDC, 0, 0, SRCCOPY);
-	SelectObject(RenderSystem::GetInstance()->_backDC, OldBitmap);
+	OldBitmap = (HBITMAP)SelectObject(_dc, MainBitmap);
+	BitBlt(_dc, x - bmWidth / 2, y - bmHeight / 2, bmWidth, bmHeight, backDC, 0, 0, SRCCOPY);
+	SelectObject(backDC, OldBitmap);
 	DeleteObject(MainBitmap);
+	DeleteDC(backDC);
 }
+
+/*
+	TODO: 
+	랜더링 순서 :
+	1. 오브젝트 ID, 랜더링 좌표 받아오기.
+	UI, 씬 -> 시작지점 : 좌상단
+	몬스터, 타워 -> 시작지점 : 중앙
+	2. 해당 ID를 기반으로 리소스 불러와서 그리기.
+*/

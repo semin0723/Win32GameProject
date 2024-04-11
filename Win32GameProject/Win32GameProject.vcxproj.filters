@@ -36,6 +36,12 @@
     <ClInclude Include="Vector3.h">
       <Filter>소스 파일\Vector3</Filter>
     </ClInclude>
+    <ClInclude Include="RenderSystem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeSystem.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -46,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="Vector3.cpp">
       <Filter>소스 파일\Vector3</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSystem.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

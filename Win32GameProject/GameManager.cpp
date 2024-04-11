@@ -2,8 +2,8 @@
 #include "Win32GameProject.h"
 
 //#include "InputSystem.h"
-//#include "TimeSystem.h"
-//#include "RenderSystem.h"
+#include "TimeSystem.h"
+#include "RenderSystem.h"
 
 namespace game
 {

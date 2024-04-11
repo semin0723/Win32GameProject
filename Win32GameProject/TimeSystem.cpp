@@ -1,24 +1,30 @@
 #include "TimeSystem.h"
 
-namespace time {
+time* time::instance = nullptr;
 
-	ULONGLONG curTime;
-	ULONGLONG prevTime;
-	ULONGLONG deltaTime;
+time::time() {
+	_curTime = _prevTime = GetTickCount64();
+	_deltaTime = 0;
+}
 
-	void InitTime() {
-		curTime = prevTime = GetTickCount64();
+time* time::GetInstance() {
+	if (instance == nullptr) {
+		instance = new time();
 	}
+	return instance;
+}
 
-	void UpdateTime() {
-		prevTime = curTime;
-		curTime = GetTickCount64();
-		deltaTime = curTime - prevTime;
-	}
+void time::DeleteInstance() {
+	delete instance;
+	instance = nullptr;
+}
 
-	const float GetFrameRate();
+void time::UpdateTime() {
+	_prevTime = _curTime;
+	_curTime = GetTickCount64();
+	_deltaTime = _curTime - _prevTime;
+}
 
-	const ULONGLONG GetDeltaTime() {
-		return deltaTime;
-	}
+const ULONGLONG time::GetDeltaTime(){
+	return _deltaTime;
 }

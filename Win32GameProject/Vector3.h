@@ -6,7 +6,7 @@ public:
 	float _y;
 	float _z;
 	Vector3();
-	explicit Vector3(float x, float y, float z);
+	Vector3(float x, float y, float z);
 
 	void operator=	(const Vector3& v);
 

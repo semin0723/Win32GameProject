@@ -130,9 +130,11 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="globalheader.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TimeSystem.h" />
@@ -146,6 +148,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
     <ClCompile Include="Tower.cpp" />

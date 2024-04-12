@@ -140,6 +140,7 @@
     <ClInclude Include="TimeSystem.h" />
     <ClInclude Include="Tower.h" />
     <ClInclude Include="UI.h" />
+    <ClInclude Include="Vector.hpp" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Win32GameProject.h" />
   </ItemGroup>

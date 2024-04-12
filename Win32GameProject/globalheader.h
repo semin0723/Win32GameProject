@@ -1,4 +1,5 @@
 #pragma once
+#include "Vector.hpp"
 
 enum class LAYER_GROUP {
 	DEFAULT,

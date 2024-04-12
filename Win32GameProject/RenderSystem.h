@@ -10,8 +10,8 @@ public:
 	HWND _hWnd;
 	HINSTANCE _hInstance;
 
-	RenderSystem() {}
-	~RenderSystem() {}
+	RenderSystem();
+	~RenderSystem();
 
 	static RenderSystem* GetInstance();
 	static void DestroyInstance();

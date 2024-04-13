@@ -25,7 +25,7 @@ public:
 		if (_flg == _size) {
 			resize();
 		}
-		data[_flg] = value;
+		_data[_flg] = value;
 		_flg++;
 	}
 	const T& operator[](int idx) const {
@@ -44,11 +44,11 @@ private:
 	void resize() {
 		T* tmp = new T[MAX_SIZE * 2];
 		for (int i = 0; i < _size; i++) {
-			tmp[i] = data[i];
+			tmp[i] = _data[i];
 		}
 		_flg++;
-		delete[] data;
-		data = tmp;
+		delete[] _data;
+		_data = tmp;
 		MAX_SIZE *= 2;
 	}
 };

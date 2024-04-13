@@ -7,5 +7,12 @@ enum class LAYER_GROUP {
 	MONSTER,
 
 
-	END = 32;
+	END = 32,
+};
+
+enum class SCENE_LAYER {
+	MAINSCENE,
+	PLAYSCENE,
+
+	END,
 };

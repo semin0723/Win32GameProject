@@ -439,3 +439,8 @@ FodyWeavers.xsd
 /.vs
 .vs/
 .bin/
+.suo
+.wsuo
+DocumentLayout.json
+VSWorkspaceState.json
+slnx.sqlite

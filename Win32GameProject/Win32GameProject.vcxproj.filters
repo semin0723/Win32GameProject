@@ -19,6 +19,12 @@
     <Filter Include="소스 파일\GameObject">
       <UniqueIdentifier>{ba6b3514-e96b-42c7-827d-f474f1feb99d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Scene">
+      <UniqueIdentifier>{d983c108-f29c-47f3-9d6e-81191b5e1b47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Container">
+      <UniqueIdentifier>{08df48b5-a095-4599-b3bf-b0699fe694e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -57,6 +63,18 @@
     <ClInclude Include="GameObject.h">
       <Filter>소스 파일\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="globalheader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.hpp">
+      <Filter>소스 파일\Container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -85,6 +103,12 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

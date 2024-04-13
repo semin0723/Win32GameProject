@@ -1,6 +1,6 @@
 #include "GameManager.h"
 #include "Win32GameProject.h"
-
+#include "SceneManager.h"
 //#include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
@@ -16,10 +16,11 @@ namespace game
 	{
 	}
 	void GameManager::Initialize()
-	{
+	{		
 		/*input::InitInput();
 		time::InitTime();
 		render::InitRender();*/
+		SceneManager::GetInstance()->InitScene();
 	}
 
 	void GameManager::Update()

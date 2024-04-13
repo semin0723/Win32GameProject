@@ -11,8 +11,8 @@ enum class LAYER_GROUP {
 };
 
 enum class SCENE_LAYER {
-	MAINSCENE,
-	PLAYSCENE,
+	MAIN,
+	PLAY,
 
 	END,
 };

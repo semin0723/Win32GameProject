@@ -7,7 +7,7 @@ class GameObject;
 class Scene {
 public:
 	Scene();
-	~Scene();
+	virtual ~Scene();
 
 	void SetSceneName(const char* name) { _SceneName = name; }
 	const char* GetSceneName() const { return _SceneName; }

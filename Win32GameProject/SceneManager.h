@@ -1,5 +1,6 @@
 #pragma once
 #include "globalheader.h"
+#include "LobbyScene.h"
 
 class Scene;
 

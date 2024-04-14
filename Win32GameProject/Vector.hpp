@@ -21,11 +21,16 @@ public:
 			_data[i] = filldata;
 		}
 	}
+	~Vector() {
+		delete[] _data;
+	}
+
 	void push_back(const T& value) {
 		if (_flg == _size) {
 			resize();
 		}
 		_data[_flg] = value;
+		_size++;
 		_flg++;
 	}
 	const T& operator[](int idx) const {
@@ -33,6 +38,9 @@ public:
 	}
 	T& operator[](int idx) {
 		return _data[idx];
+	}
+	int size() {
+		return _size;
 	}
 
 private:

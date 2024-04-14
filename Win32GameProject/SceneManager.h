@@ -1,6 +1,7 @@
 #pragma once
 #include "globalheader.h"
 #include "LobbyScene.h"
+#include "Win32GameProject.h"
 
 class Scene;
 
@@ -13,6 +14,8 @@ public:
 	static SceneManager* GetInstance();
 	void DestroyInstance();
 	void InitScene();
+	void update();
+	void render(HDC mainDC);
 
 private:
 	static SceneManager* instance;

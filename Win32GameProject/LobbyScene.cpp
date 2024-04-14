@@ -7,3 +7,11 @@ LobbyScene::LobbyScene() {
 LobbyScene::~LobbyScene() {
 
 }
+
+void LobbyScene::start() {
+
+}
+
+void LobbyScene::end() {
+
+}

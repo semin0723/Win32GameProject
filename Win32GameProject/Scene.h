@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector.hpp"
 #include "globalheader.h"
+#include "Win32GameProject.h"
 
 class GameObject;
 
@@ -11,9 +12,15 @@ public:
 
 	void SetSceneName(const char* name) { _SceneName = name; }
 	const char* GetSceneName() const { return _SceneName; }
-	void AddObject(GameObject* obj) { _Objects->push_back(obj); }
+	virtual void start() = 0;
+	virtual void end() = 0;
+	void update();
+	void render(HDC mainDC);
+
+protected:
+	void AddObject(GameObject* obj, LAYER_GROUP group) { _Objects[(int)group].push_back(obj); }
 
 private:
-	Vector<GameObject*> _Objects[(int)LAYER_GROUP::END];
+	Vector<GameObject*> _Objects[(int)LAYER_GROUP::END] = {};
 	const char* _SceneName;
 };

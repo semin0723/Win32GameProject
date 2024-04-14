@@ -7,7 +7,12 @@ SceneManager::SceneManager() : _curScene(nullptr) {
 	}
 }
 SceneManager::~SceneManager() {
-	
+	for (int i = 0; i < (int)SCENE_LAYER::END; i++) {
+		if (_Scenes[i] != nullptr) {
+			delete _Scenes[i];
+			_Scenes[i] = nullptr;
+		}
+	}
 }
 
 SceneManager* SceneManager::GetInstance() {
@@ -26,4 +31,12 @@ void SceneManager::InitScene() {
 	_Scenes[(int)SCENE_LAYER::MAIN] = new LobbyScene();
 	_Scenes[(int)SCENE_LAYER::MAIN]->SetSceneName("Lobby");
 	_curScene = _Scenes[(int)SCENE_LAYER::MAIN];
+	_curScene->start();
+}
+
+void SceneManager::update() {
+	_curScene->update();
+}
+void SceneManager::render(HDC mainDC) {
+	_curScene->render(mainDC);
 }

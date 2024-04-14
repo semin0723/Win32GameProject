@@ -15,9 +15,6 @@ constexpr int SCREEN_START_LEFT = 10;
 
 constexpr int SCREEN_START_TOP = 10;
 
-constexpr int SCREEN_WIDTH = 1024;
-
-constexpr int SCREEN_HEIGHT = 768;
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_opt_ HINSTANCE hPrevInstance,
     _In_ LPWSTR    lpCmdLine,
@@ -61,12 +58,9 @@ void WinApp::Initialize(HINSTANCE hInstance)
     // Step 2: Creating the Window
 
     RECT rect{ SCREEN_START_LEFT, SCREEN_START_TOP,
-    SCREEN_START_LEFT + SCREEN_WIDTH, SCREEN_START_TOP + SCREEN_HEIGHT };
+    SCREEN_START_LEFT + width, SCREEN_START_TOP + height };
 
     ::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
-
-    int width = rect.right - rect.left;
-    int height = rect.bottom - rect.top;
 
     m_hWnd = CreateWindow(appName, appName, WS_OVERLAPPED | WS_SYSMENU,
         SCREEN_START_LEFT, SCREEN_START_TOP, width, height, NULL, NULL, hInstance, NULL);

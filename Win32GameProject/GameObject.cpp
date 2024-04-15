@@ -6,6 +6,3 @@ GameObject::GameObject() {
 	_ResourceID = 0;
 }
 GameObject::~GameObject() {}
-
-void GameObject::update() {}
-void GameObject::render(HDC hdc) {}

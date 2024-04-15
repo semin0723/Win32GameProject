@@ -35,7 +35,7 @@ namespace game
 		UpdateBlueCircle();
 
 		input::ResetInput();*/
-
+		SceneManager::GetInstance()->update();
 	}
 
 	void GameManager::FixeUpdate()
@@ -61,6 +61,9 @@ namespace game
 		DrawPlayer();
 
 		render::EndDraw();*/
+		RenderSystem::GetInstance()->ScreenClear();
+		SceneManager::GetInstance()->render(RenderSystem::GetInstance()->_hdc, global::GetWinApp().GetInstance());
+		
 	}
 	void GameManager::Finalize()
 	{

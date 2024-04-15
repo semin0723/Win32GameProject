@@ -30,18 +30,14 @@ void RenderSystem::DestroyInstance() {
 	}
 }
 
-void RenderSystem::DrawBitMap(const HDC _dc, const int x, const int y, const int id) {
+void RenderSystem::ScreenClear() {
 	HBITMAP MainBitmap, OldBitmap;
-	BITMAP Bitmapinfo;
-	HDC backDC = CreateCompatibleDC(_dc);
-	int bmWidth, bmHeight;
-	MainBitmap = LoadBitmap(RenderSystem::GetInstance()->_hInstance, MAKEINTRESOURCE(id));
-	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&Bitmapinfo);
-	bmWidth = Bitmapinfo.bmWidth;
-	bmHeight = Bitmapinfo.bmHeight;
-
-	OldBitmap = (HBITMAP)SelectObject(_dc, MainBitmap);
-	BitBlt(_dc, x - bmWidth / 2, y - bmHeight / 2, bmWidth, bmHeight, backDC, 0, 0, SRCCOPY);
+	BITMAP clear;
+	HDC backDC = CreateCompatibleDC(_hdc);
+	MainBitmap = LoadBitmap(RenderSystem::GetInstance()->_hInstance, MAKEINTRESOURCE(IDB_BITMAP2));
+	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&clear);
+	OldBitmap = (HBITMAP)SelectObject(_hdc, MainBitmap);
+	BitBlt(_hdc, 0, 0, clear.bmWidth, clear.bmHeight, backDC, 0, 0, SRCCOPY);
 	SelectObject(backDC, OldBitmap);
 	DeleteObject(MainBitmap);
 	DeleteDC(backDC);

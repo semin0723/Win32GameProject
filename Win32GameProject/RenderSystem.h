@@ -16,7 +16,7 @@ public:
 	static RenderSystem* GetInstance();
 	static void DestroyInstance();
 
-	void DrawBitMap(const HDC _dc, const int x, const int y, const int id);
+	void ScreenClear();
 
 private:
 	static RenderSystem* instance;

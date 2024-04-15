@@ -15,7 +15,7 @@ public:
 	void DestroyInstance();
 	void InitScene();
 	void update();
-	void render(HDC mainDC);
+	void render(HDC mainDC, HINSTANCE hIns);
 
 private:
 	static SceneManager* instance;

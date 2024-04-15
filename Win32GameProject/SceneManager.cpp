@@ -37,6 +37,6 @@ void SceneManager::InitScene() {
 void SceneManager::update() {
 	_curScene->update();
 }
-void SceneManager::render(HDC mainDC) {
-	_curScene->render(mainDC);
+void SceneManager::render(HDC mainDC, HINSTANCE hIns) {
+	_curScene->render(mainDC, hIns);
 }

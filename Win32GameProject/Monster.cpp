@@ -16,7 +16,6 @@ void Monster::update() {
 }
 
 void Monster::render(HDC mainDC, HINSTANCE hIns) {
-	
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
 	HDC tmp = CreateCompatibleDC(mainDC);

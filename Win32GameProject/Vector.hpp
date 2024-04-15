@@ -26,12 +26,12 @@ public:
 	}
 
 	void push_back(const T& value) {
-		if (_flg == _size) {
-			resize();
-		}
 		_data[_flg] = value;
 		_size++;
 		_flg++;
+		if (_size == MAX_SIZE) {
+			resize();
+		}
 	}
 	const T& operator[](int idx) const {
 		return _data[idx];

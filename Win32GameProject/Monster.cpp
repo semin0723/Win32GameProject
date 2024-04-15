@@ -11,7 +11,7 @@ Monster::~Monster()
 void Monster::update() {
 	Vector3 loc = GameObject::GetLocation();
 	if (loc._x <= 700) {
-		GameObject::SetLocation(GameObject::GetLocation() + (Vector3(10.f, 0, 0) * TimeManager::GetInstance()->GetDeltaTime()));
+		GameObject::SetLocation(GameObject::GetLocation() + (Vector3(_speed, 0, 0) * TimeManager::GetInstance()->GetDeltaTime()));
 	}
 }
 

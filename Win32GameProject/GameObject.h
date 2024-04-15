@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector3.h"
 #include "Win32GameProject.h"
+#include "TimeSystem.h"
 
 class GameObject
 {

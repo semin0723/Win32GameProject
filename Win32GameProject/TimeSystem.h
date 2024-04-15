@@ -1,22 +1,22 @@
 #pragma once
 #include <Windows.h>
 
-class time
+class TimeManager
 {
 public:
-	time();
+	TimeManager();
 
-	static time* GetInstance();
+	static TimeManager* GetInstance();
 	static void DeleteInstance();
 
 	void UpdateTime();
 	const float GetFrameRate();
-	const ULONGLONG GetDeltaTime();
+	const float GetDeltaTime();
 
 private:
 	ULONGLONG _curTime;
 	ULONGLONG _prevTime;
 	ULONGLONG _deltaTime;
 
-	static time* instance;
+	static TimeManager* instance;
 };

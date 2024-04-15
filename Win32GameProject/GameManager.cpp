@@ -35,6 +35,7 @@ namespace game
 		UpdateBlueCircle();
 
 		input::ResetInput();*/
+		TimeManager::GetInstance()->UpdateTime();
 		SceneManager::GetInstance()->update();
 	}
 
@@ -67,6 +68,7 @@ namespace game
 	}
 	void GameManager::Finalize()
 	{
+		TimeManager::DeleteInstance();
 		RenderSystem::DestroyInstance();
 	}
 	void GameManager::Run()

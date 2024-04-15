@@ -1,30 +1,30 @@
 #include "TimeSystem.h"
 
-time* time::instance = nullptr;
+TimeManager* TimeManager::instance = nullptr;
 
-time::time() {
+TimeManager::TimeManager() {
 	_curTime = _prevTime = GetTickCount64();
 	_deltaTime = 0;
 }
 
-time* time::GetInstance() {
+TimeManager* TimeManager::GetInstance() {
 	if (instance == nullptr) {
-		instance = new time();
+		instance = new TimeManager();
 	}
 	return instance;
 }
 
-void time::DeleteInstance() {
+void TimeManager::DeleteInstance() {
 	delete instance;
 	instance = nullptr;
 }
 
-void time::UpdateTime() {
+void TimeManager::UpdateTime() {
 	_prevTime = _curTime;
 	_curTime = GetTickCount64();
 	_deltaTime = _curTime - _prevTime;
 }
 
-const ULONGLONG time::GetDeltaTime(){
-	return _deltaTime;
+const float TimeManager::GetDeltaTime(){
+	return (float)(_deltaTime / 100.f);
 }

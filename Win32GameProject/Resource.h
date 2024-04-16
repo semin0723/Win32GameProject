@@ -13,7 +13,6 @@
 #define IDC_WIN32GAMEPROJECT            109
 #define IDR_MAINFRAME                   128
 #define IDB_BITMAP1                     129
-#define IDB_BITMAP2                     130
 #define IDC_STATIC                      -1
 
 // Next default values for new objects

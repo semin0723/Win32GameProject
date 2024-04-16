@@ -62,8 +62,9 @@ namespace game
 		DrawPlayer();
 
 		render::EndDraw();*/
-		RenderSystem::GetInstance()->ScreenClear();
-		SceneManager::GetInstance()->render(RenderSystem::GetInstance()->_hdc, global::GetWinApp().GetInstance());
+		RenderSystem::GetInstance()->StartDraw();
+		SceneManager::GetInstance()->render(RenderSystem::GetInstance()->_backDC, global::GetWinApp().GetInstance());
+		RenderSystem::GetInstance()->EndDraw();
 		
 	}
 	void GameManager::Finalize()

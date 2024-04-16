@@ -6,12 +6,11 @@ RenderSystem::RenderSystem() {
 	_hInstance = global::GetWinApp().GetInstance();
 	_hWnd = global::GetWinApp().GetWindow();
 	_hdc = GetDC(_hWnd);
-	_frontDC = CreateCompatibleDC(_hdc);
 	_backDC = CreateCompatibleDC(_hdc);
+	GetClientRect(_hWnd, &_rect);
 }
 
 RenderSystem::~RenderSystem() {
-	DeleteDC(_frontDC);
 	DeleteDC(_backDC);
 	ReleaseDC(_hWnd, _hdc);
 }
@@ -30,19 +29,17 @@ void RenderSystem::DestroyInstance() {
 	}
 }
 
-void RenderSystem::ScreenClear() {
-	HBITMAP MainBitmap, OldBitmap;
-	BITMAP clear;
-	HDC backDC = CreateCompatibleDC(_hdc);
-	MainBitmap = LoadBitmap(RenderSystem::GetInstance()->_hInstance, MAKEINTRESOURCE(IDB_BITMAP2));
-	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&clear);
-	OldBitmap = (HBITMAP)SelectObject(_hdc, MainBitmap);
-	BitBlt(_hdc, 0, 0, clear.bmWidth, clear.bmHeight, backDC, 0, 0, SRCCOPY);
-	SelectObject(backDC, OldBitmap);
-	DeleteObject(MainBitmap);
-	DeleteDC(backDC);
+void RenderSystem::StartDraw() {
+	_MainBitmap = CreateCompatibleBitmap(_hdc, _rect.right - _rect.left, _rect.bottom - _rect.top);
+	_OldBitmap = (HBITMAP)SelectObject(_backDC, _MainBitmap);
+	FillRect(_backDC, &_rect, (HBRUSH)GetStockObject(WHITE_BRUSH));
 }
 
+void RenderSystem::EndDraw() {
+	BitBlt(_hdc, _rect.left, _rect.top, _rect.right - _rect.left, _rect.bottom - _rect.top, _backDC, 0, 0, SRCCOPY);
+	SelectObject(_backDC, _OldBitmap);
+	DeleteObject(_MainBitmap);
+}
 /*
 	TODO: 
 	랜더링 순서 :

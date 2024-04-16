@@ -164,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
-    <Image Include="bitmap2.bmp" />
     <Image Include="small.ico" />
     <Image Include="Win32GameProject.ico" />
   </ItemGroup>

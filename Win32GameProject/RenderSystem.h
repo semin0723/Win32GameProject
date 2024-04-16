@@ -5,10 +5,12 @@ class RenderSystem
 {
 public:
 	HDC _hdc;
-	HDC _frontDC;
 	HDC _backDC;
 	HWND _hWnd;
+	RECT _rect;
 	HINSTANCE _hInstance;
+	HBITMAP _MainBitmap;
+	HBITMAP _OldBitmap;
 
 	RenderSystem();
 	~RenderSystem();
@@ -16,7 +18,8 @@ public:
 	static RenderSystem* GetInstance();
 	static void DestroyInstance();
 
-	void ScreenClear();
+	void StartDraw();
+	void EndDraw();
 
 private:
 	static RenderSystem* instance;

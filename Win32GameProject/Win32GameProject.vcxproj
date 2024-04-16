@@ -131,6 +131,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="globalheader.h" />
+    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="RenderSystem.h" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="RenderSystem.cpp" />

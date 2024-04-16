@@ -1,7 +1,7 @@
 #include "GameManager.h"
 #include "Win32GameProject.h"
 #include "SceneManager.h"
-//#include "InputSystem.h"
+#include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
 
@@ -17,26 +17,14 @@ namespace game
 	}
 	void GameManager::Initialize()
 	{		
-		/*input::InitInput();
-		time::InitTime();
-		render::InitRender();*/
 		SceneManager::GetInstance()->InitScene();
 	}
 
 	void GameManager::Update()
 	{
-		/*++m_UpdateCount;
-
-		input::UpdateMouse();
-
-		time::UpdateTime();
-
-		UpdatePlayer();
-		UpdateBlueCircle();
-
-		input::ResetInput();*/
 		TimeManager::GetInstance()->UpdateTime();
 		SceneManager::GetInstance()->update();
+		InputSystem::GetInstance()->ResetInput();
 	}
 
 	void GameManager::FixeUpdate()
@@ -55,17 +43,9 @@ namespace game
 
 	void GameManager::Render()
 	{
-		/*render::BeginDraw();
-
-		DrawFPS();
-		DrawSomething();
-		DrawPlayer();
-
-		render::EndDraw();*/
 		RenderSystem::GetInstance()->StartDraw();
 		SceneManager::GetInstance()->render(RenderSystem::GetInstance()->_backDC, global::GetWinApp().GetInstance());
 		RenderSystem::GetInstance()->EndDraw();
-		
 	}
 	void GameManager::Finalize()
 	{
@@ -84,13 +64,12 @@ namespace game
 
 				if (msg.message == WM_KEYDOWN)
 				{
-					//input::KeyDown(msg.wParam);
+					InputSystem::GetInstance()->KeyDown(msg.wParam);
 				}
 				else if (msg.message == WM_KEYUP)
 				{
-					//input::KeyUp(msg.wParam);
+					InputSystem::GetInstance()->KeyUp(msg.wParam);
 				}
-
 				else
 				{
 					DispatchMessage(&msg);

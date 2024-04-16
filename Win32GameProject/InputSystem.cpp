@@ -1,5 +1,7 @@
 #include "InputSystem.h"
 
+InputSystem* InputSystem::instance = nullptr;
+
 InputSystem::InputSystem()
 {
 	for (int i = 0; i < 256; i++) {
@@ -42,4 +44,12 @@ void InputSystem::KeyUp(const unsigned int key)
 	_isKeyDown[key] = false;
 	_isKeyUp[key] = true;
 	_isKey[key] = false;
+}
+
+void InputSystem::ResetInput() {
+	for (int i = 0; i < 256; i++) {
+		_isKeyDown[i] = false;
+		_isKeyUp[i] = false;
+		_isKey[i] = false;
+	}
 }

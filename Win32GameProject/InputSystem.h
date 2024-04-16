@@ -6,9 +6,9 @@ public:
 	InputSystem();
 	~InputSystem();
 
-	InputSystem* GetInstance();
+	static InputSystem* GetInstance();
 	void DestroyInstance();
-
+	void ResetInput();
 	void KeyDown(const unsigned int key);
 	void KeyUp(const unsigned int key);
 	bool isKeyDown(const unsigned int key) const { return _isKeyDown[key]; }

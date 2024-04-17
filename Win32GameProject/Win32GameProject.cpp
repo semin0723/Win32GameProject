@@ -63,7 +63,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
     ::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 
     m_hWnd = CreateWindow(appName, appName, WS_OVERLAPPED | WS_SYSMENU,
-        SCREEN_START_LEFT, SCREEN_START_TOP, width, height, NULL, NULL, hInstance, NULL);
+        SCREEN_START_LEFT, SCREEN_START_TOP, 1056, 846, NULL, NULL, hInstance, NULL);
 
     ShowWindow(m_hWnd, SW_SHOWNORMAL);
     UpdateWindow(m_hWnd);

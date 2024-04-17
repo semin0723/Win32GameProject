@@ -51,10 +51,7 @@
     <ClInclude Include="TimeSystem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Tower.h">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
+    <ClInclude Include="Tile.h">
       <Filter>소스 파일\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="UI.h">
@@ -98,10 +95,7 @@
     <ClCompile Include="TimeSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Tower.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="Monster.cpp">
+    <ClCompile Include="Tile.cpp">
       <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="UI.cpp">
@@ -136,6 +130,30 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="bitmap1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_One.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Two.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="UnOpenedTile_Focus.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="UnOpenedTile.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Three.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Four.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Five.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="MainMap.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

@@ -30,9 +30,12 @@ void RenderSystem::DestroyInstance() {
 }
 
 void RenderSystem::StartDraw() {
-	_MainBitmap = CreateCompatibleBitmap(_hdc, _rect.right - _rect.left, _rect.bottom - _rect.top);
+
+	//_MainBitmap = CreateCompatibleBitmap(_hdc, _rect.right - _rect.left, _rect.bottom - _rect.top);
+	_MainBitmap = LoadBitmap(_hInstance, MAKEINTRESOURCE(MAIN_BACKGROUND));
 	_OldBitmap = (HBITMAP)SelectObject(_backDC, _MainBitmap);
-	FillRect(_backDC, &_rect, (HBRUSH)GetStockObject(WHITE_BRUSH));
+	//BitBlt(_backDC, 0, 0, 1024, 768, tmpDC, 0, 0, SRCCOPY);
+	//FillRect(_backDC, &_rect, (HBRUSH)GetStockObject(WHITE_BRUSH));
 }
 
 void RenderSystem::EndDraw() {

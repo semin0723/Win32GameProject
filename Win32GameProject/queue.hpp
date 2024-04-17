@@ -21,7 +21,7 @@ public:
         _data[_end] = e;
         _size++;
         _end = (_end + 1) % MAX_SIZE;
-        if (end == start) {
+        if (_end == _start) {
             resize();
         }
     }
@@ -46,7 +46,7 @@ private:
             tmp[flg] = _data[(_start + i) % MAX_SIZE];
             flg++;
         }
-        delete[] data;
+        delete[] _data;
         _data = tmp;
         _start = 0; _end = flg;
         MAX_SIZE *= 2;

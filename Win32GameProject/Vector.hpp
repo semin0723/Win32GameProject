@@ -8,12 +8,12 @@ public:
 		_flg = 0;
 		_data = new T[MAX_SIZE];
 	}
-	Vector(int size) {
+	Vector(const int size) {
 		_size = 0;
 		_flg = 0;
 		_data = new T[size];
 	}
-	Vector(int size, const T& filldata) {
+	Vector(const int size, const T& filldata) {
 		_size = size;
 		_flg = _size - 1;
 		_data = new T[size];
@@ -33,10 +33,10 @@ public:
 			resize();
 		}
 	}
-	const T& operator[](int idx) const {
+	const T& operator[](const int idx) const {
 		return _data[idx];
 	}
-	T& operator[](int idx) {
+	T& operator[](const int idx) {
 		return _data[idx];
 	}
 	int size() {

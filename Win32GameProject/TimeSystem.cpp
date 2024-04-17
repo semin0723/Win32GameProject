@@ -14,7 +14,7 @@ TimeManager* TimeManager::GetInstance() {
 	return instance;
 }
 
-void TimeManager::DeleteInstance() {
+void TimeManager::DestroyInstance() {
 	delete instance;
 	instance = nullptr;
 }

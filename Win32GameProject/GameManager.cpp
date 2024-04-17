@@ -41,7 +41,8 @@ namespace game
 	}
 	void GameManager::Finalize()
 	{
-		TimeManager::DeleteInstance();
+		TimeManager::DestroyInstance();
+		SceneManager::DestroyInstance();
 		RenderSystem::DestroyInstance();
 	}
 	void GameManager::Run()

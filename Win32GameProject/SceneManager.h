@@ -12,7 +12,7 @@ public:
 	~SceneManager();
 
 	static SceneManager* GetInstance();
-	void DestroyInstance();
+	static void DestroyInstance();
 	void InitScene();
 	void update();
 	void render(HDC mainDC, HINSTANCE hIns);

@@ -7,7 +7,7 @@ public:
 	TimeManager();
 
 	static TimeManager* GetInstance();
-	static void DeleteInstance();
+	static void DestroyInstance();
 
 	void UpdateTime();
 	const float GetFrameRate();

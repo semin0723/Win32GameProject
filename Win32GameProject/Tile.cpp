@@ -1,18 +1,18 @@
-#include "Monster.h"
+#include "Tile.h"
 
-Monster::Monster()
+Tile::Tile()
 {
 }
 
-Monster::~Monster()
+Tile::~Tile()
 {
 }
 
-void Monster::update() {
+void Tile::update() {
 
 }
 
-void Monster::render(HDC mainDC, HINSTANCE hIns) {
+void Tile::render(HDC mainDC, HINSTANCE hIns) {
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
 	HDC tmp = CreateCompatibleDC(mainDC);

@@ -20,8 +20,12 @@
 #define IDB_BITMAP2                     135
 #define OPENED_FOUR                     138
 #define OPENED_FIVE                     139
-#define IDB_BITMAP3                     140
 #define MAIN_BACKGROUND                 140
+#define OPENED_SIX                      141
+#define OPENED_SEVEN                    142
+#define OPENED_EIGHT                    143
+#define IDB_BITMAP3                     144
+#define FLAG_POINT                      144
 #define IDC_STATIC                      -1
 #define UNOPENED                        65535
 #define UNOPENED_UNFOCUS                65535
@@ -31,7 +35,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        141
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

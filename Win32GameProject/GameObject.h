@@ -2,6 +2,7 @@
 #include "Vector3.h"
 #include "Win32GameProject.h"
 #include "TimeSystem.h"
+#include "InputSystem.h"
 
 class GameObject
 {

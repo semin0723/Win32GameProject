@@ -2,7 +2,7 @@
 #include "Scene.h"
 #include "LobbyScene.h"
 #include "GameObject.h"
-#include "Monster.h"
+#include "Tile.h"
 
 class LobbyScene :
     public Scene

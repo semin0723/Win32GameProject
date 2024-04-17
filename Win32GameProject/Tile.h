@@ -14,8 +14,3 @@ public:
 private:
 	
 };
-
-/*
-	몬스터의 특징:
-	hp, speed, defence
-*/

@@ -3,6 +3,7 @@
 #include "globalheader.h"
 #include "GameObject.h"
 #include "Win32GameProject.h"
+#include "Tile.h"
 
 class GameObject;
 
@@ -19,9 +20,9 @@ public:
 	void render(HDC mainDC, HINSTANCE hIns);
 
 protected:
-	void AddObject(GameObject* obj, LAYER_GROUP group) { _Objects[(int)group].push_back(obj); }
+	void AddObject(Tile* obj, int y) { _Objects[y].push_back(obj); }
 
 private:
-	Vector<GameObject*> _Objects[(int)LAYER_GROUP::END];
+	Vector<Tile*> _Objects[20];
 	const char* _SceneName;
 };

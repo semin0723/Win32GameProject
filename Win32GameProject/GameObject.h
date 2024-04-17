@@ -18,7 +18,7 @@ public:
 	int GetResourceID() const { return _ResourceID; }
 
 	virtual void update() = 0;
-	virtual void render(HDC hdc, HINSTANCE hIns) = 0;
+	virtual void render(HDC hdc, HINSTANCE hIns, int x, int y) = 0;
 
 private:
 	Vector3 _location;

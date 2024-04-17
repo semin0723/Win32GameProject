@@ -10,7 +10,7 @@ public:
 	~Tile();
 
 	virtual void update();
-	virtual void render(HDC mainDC, HINSTANCE hIns);
+	virtual void render(HDC mainDC, HINSTANCE hIns, int x, int y);
 private:
 	
 };

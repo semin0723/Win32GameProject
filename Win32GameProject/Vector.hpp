@@ -54,7 +54,7 @@ private:
 		for (int i = 0; i < _size; i++) {
 			tmp[i] = _data[i];
 		}
-		_flg++;
+		_flg = MAX_SIZE;
 		delete[] _data;
 		_data = tmp;
 		MAX_SIZE *= 2;

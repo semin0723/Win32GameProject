@@ -16,7 +16,7 @@ void Tile::update() {
 	int obj_x = GameObject::GetLocation()._x / 32, obj_y = GameObject::GetLocation()._y / 32;
 	//TODO: 현재 마우스 위치랑 오브젝트의 위치랑 맞지않아도 눌림처리가 되는 경우가 있습니다. 이를 수정해야합니다.
 	if (prev_x >= 1 && cur_x >= 1 && prev_y >= 3 && cur_y >= 3 &&
-		prev_x <= 30 && cur_x <= 30 && prev_y <= 20 && cur_y <= 20) {
+		prev_x <= 30 && cur_x <= 30 && prev_y <= 22 && cur_y <= 22) {
 		if (prev_x == obj_x && cur_x == obj_x && prev_y == obj_y && cur_y == obj_y) {
 			if ((prev_x == cur_x && prev_y == cur_y)) {
 				if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {

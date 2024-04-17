@@ -23,22 +23,14 @@ namespace game
 	void GameManager::Update()
 	{
 		TimeManager::GetInstance()->UpdateTime();
+		InputSystem::GetInstance()->updateMouse();
 		SceneManager::GetInstance()->update();
 		InputSystem::GetInstance()->ResetInput();
 	}
 
 	void GameManager::FixeUpdate()
 	{
-		//static ULONGLONG elapsedTime;
-
-		//elapsedTime += time::GetDeltaTime();
-
-		//while (elapsedTime >= 20) //0.02ÃÊ
-		//{
-		//	++m_FixedUpdateCount;
-
-		//	elapsedTime -= 20;
-		//}
+		
 	}
 
 	void GameManager::Render()
@@ -101,50 +93,5 @@ namespace game
 			delete instance;
 			instance = nullptr;
 		}
-	}
-
-	void GameManager::DrawFPS()
-	{
-		/*static ULONGLONG elapsedTime;
-		static int UpdateCount;
-		static int FixedUpdateCount;
-
-		elapsedTime += time::GetDeltaTime();
-
-		if (elapsedTime >= 1000)
-		{
-			elapsedTime = 0;
-			;
-			UpdateCount = m_UpdateCount;
-			FixedUpdateCount = m_FixedUpdateCount;
-
-			m_UpdateCount = 0;
-			m_FixedUpdateCount = 0;
-		}
-
-		std::string str = "FPS: " + std::to_string(time::GetFrameRate());
-		str += "           Update " + std::to_string(UpdateCount);
-		str += "           FixedUpdate " + std::to_string(FixedUpdateCount);
-
-		render::DrawText(10, 10, str.c_str(), RGB(255, 0, 0));*/
-
-	}
-
-	void GameManager::DrawPlayer()
-	{
-		//render::DrawCircle(player.x, player.y, player.size, player.color);
-	}
-
-	void GameManager::DrawSomething()
-	{
-
-		/*for (int i = 0; i < blueCircleCount; i++)
-		{
-			render::DrawCircle(blueCircles[i].x, blueCircles[i].y, blueCircles[i].size, blueCircles[i].color);
-		}
-
-		render::DrawLine(player.x - 50, player.y + 50, player.x + 50, player.y + 50, RGB(255, 0, 0));
-		render::DrawRect(player.x - 25, player.y - 25, 50, 50, RGB(255, 0, 255));*/
-
 	}
 }

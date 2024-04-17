@@ -133,6 +133,7 @@
     <ClInclude Include="globalheader.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LobbyScene.h" />
+    <ClInclude Include="queue.hpp" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Resource.h" />
@@ -164,6 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
+    <Image Include="Flag.bmp" />
+    <Image Include="Opened_Eight.bmp" />
+    <Image Include="Opened_Seven.bmp" />
+    <Image Include="Opened_Six.bmp" />
     <Image Include="MainMap.bmp" />
     <Image Include="Opened_Five.bmp" />
     <Image Include="Opened_Four.bmp" />

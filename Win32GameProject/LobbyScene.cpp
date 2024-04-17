@@ -9,11 +9,10 @@ LobbyScene::~LobbyScene() {
 }
 
 void LobbyScene::start() {
-	Monster* monster = new Monster;
-	monster->SetLocation(Vector3(48, 112, 0));
-	monster->SetResourceID(UNOPENED);
-	monster->SetSpeed(20.f);
-	Scene::AddObject(monster, LAYER_GROUP::MONSTER);
+	Tile* tile = new Tile;
+	tile->SetResourceID(UNOPENED);
+	Scene::AddObject(tile, LAYER_GROUP::UNOPEN);
+	//TODO: 여기서 지뢰의 맵을 구성하고, 각 맵에 해당하는 지뢰 리소스를 넣어야 합니다.
 }
 
 void LobbyScene::end() {

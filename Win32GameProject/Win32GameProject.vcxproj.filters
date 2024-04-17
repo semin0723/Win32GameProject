@@ -78,6 +78,9 @@
     <ClInclude Include="InputSystem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="queue.hpp">
+      <Filter>소스 파일\Container</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -154,6 +157,18 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="MainMap.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Six.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Seven.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Eight.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Flag.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

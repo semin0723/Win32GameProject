@@ -119,7 +119,7 @@ void LobbyScene::OpenBlank(int x, int y) {
 		save.pop();
 		for (int k = 0; k < 8; k++) {
 			int ny = cy + dy[k], nx = cx + dx[k];
-			if (ny >= 0 && ny <= 20 && nx >= 0 && nx <= 30) {
+			if (ny >= 0 && ny < 20 && nx >= 0 && nx < 30) {
 				if (_MineMap[ny][nx] < 9 && _isMapOpen[ny][nx] == false) {
 					_isMapOpen[ny][nx] = 1;
 					Scene::ChangeObjectState(nx, ny, GetResourceID(_MineMap[ny][nx]));

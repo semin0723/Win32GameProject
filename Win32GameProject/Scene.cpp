@@ -5,7 +5,7 @@ Scene::Scene() {
 }
 Scene::~Scene() {
 	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < _Objects[i].size(); j++) {
+		for (int j = 0; j < /*_Objects[i].size();*/30; j++) {
 			if (_Objects[i][j] != nullptr) {
 				delete _Objects[i][j];
 			}
@@ -15,7 +15,7 @@ Scene::~Scene() {
 
 void Scene::update() {
 	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < _Objects[i].size(); j++) {
+		for (int j = 0; j < 30; j++) {
 			_Objects[i][j]->update();
 		}
 	}
@@ -23,7 +23,7 @@ void Scene::update() {
 
 void Scene::render(HDC mainDC, HINSTANCE hIns) {
 	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < _Objects[i].size(); j++) {
+		for (int j = 0; j < 30; j++) {
 			_Objects[i][j]->render(mainDC, hIns, j, i);
 		}
 	}

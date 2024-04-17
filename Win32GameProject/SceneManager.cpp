@@ -28,7 +28,7 @@ void SceneManager::DestroyInstance() {
 }
 
 void SceneManager::InitScene() {
-	_Scenes[(int)SCENE_LAYER::MAIN] = new LobbyScene();
+	_Scenes[(int)SCENE_LAYER::MAIN] = LobbyScene::GetInstance();
 	_Scenes[(int)SCENE_LAYER::MAIN]->SetSceneName("Lobby");
 	_curScene = _Scenes[(int)SCENE_LAYER::MAIN];
 	_curScene->start();

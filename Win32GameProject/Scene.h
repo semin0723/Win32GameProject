@@ -5,7 +5,7 @@
 #include "Win32GameProject.h"
 #include "Tile.h"
 
-class GameObject;
+class Tile;
 
 class Scene {
 public:
@@ -20,9 +20,11 @@ public:
 	void render(HDC mainDC, HINSTANCE hIns);
 
 protected:
-	void AddObject(Tile* obj, int y) { _Objects[y].push_back(obj); }
+	void AddObject(Tile* obj, int x, int y) { /*_Objects[y].push_back(obj);*/_Objects[y][x] = obj; }
+	void ChangeObjectState(int x, int y, int StateID) { _Objects[y][x]->SetResourceID(StateID); }
 
 private:
-	Vector<Tile*> _Objects[20];
+	//Vector<Tile*> _Objects[20];
+	Tile* _Objects[20][30];
 	const char* _SceneName;
 };

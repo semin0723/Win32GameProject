@@ -30,12 +30,8 @@ void RenderSystem::DestroyInstance() {
 }
 
 void RenderSystem::StartDraw() {
-
-	//_MainBitmap = CreateCompatibleBitmap(_hdc, _rect.right - _rect.left, _rect.bottom - _rect.top);
 	_MainBitmap = LoadBitmap(_hInstance, MAKEINTRESOURCE(MAIN_BACKGROUND));
 	_OldBitmap = (HBITMAP)SelectObject(_backDC, _MainBitmap);
-	//BitBlt(_backDC, 0, 0, 1024, 768, tmpDC, 0, 0, SRCCOPY);
-	//FillRect(_backDC, &_rect, (HBRUSH)GetStockObject(WHITE_BRUSH));
 }
 
 void RenderSystem::EndDraw() {
@@ -43,11 +39,3 @@ void RenderSystem::EndDraw() {
 	SelectObject(_backDC, _OldBitmap);
 	DeleteObject(_MainBitmap);
 }
-/*
-	TODO: 
-	랜더링 순서 :
-	1. 오브젝트 ID, 랜더링 좌표 받아오기.
-	UI, 씬 -> 시작지점 : 좌상단
-	몬스터, 타워 -> 시작지점 : 중앙
-	2. 해당 ID를 기반으로 리소스 불러와서 그리기.
-*/

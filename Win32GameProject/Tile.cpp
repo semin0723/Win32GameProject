@@ -20,7 +20,7 @@ void Tile::update() {
 		if (prev_x == obj_x && cur_x == obj_x && prev_y == obj_y && cur_y == obj_y) {
 			if ((prev_x == cur_x && prev_y == cur_y)) {
 				if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {
-					if (GameObject::GetResourceID() != FLAG_POINT || GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
+					if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 						GameObject::SetResourceID(UNOPENED_FOCUS);
 					}
 				}
@@ -31,7 +31,7 @@ void Tile::update() {
 					}
 				}
 				else if (prevState._right == 0 && curState._right == 1) {
-					if (GameObject::GetResourceID() != FLAG_POINT || GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
+					if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 						GameObject::SetResourceID(FLAG_POINT);
 					}
 					else if (GameObject::GetResourceID() == FLAG_POINT) {

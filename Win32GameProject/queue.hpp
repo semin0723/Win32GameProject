@@ -25,7 +25,7 @@ public:
             resize();
         }
     }
-    int front() {
+    T front() {
         return _data[_start];
     }
     void pop() {

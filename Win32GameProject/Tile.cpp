@@ -20,16 +20,18 @@ void Tile::update() {
 		if (prev_x == obj_x && cur_x == obj_x && prev_y == obj_y && cur_y == obj_y) {
 			if ((prev_x == cur_x && prev_y == cur_y)) {
 				if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {
-					if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
+					if (GameObject::GetResourceID() != FLAG_POINT || GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 						GameObject::SetResourceID(UNOPENED_FOCUS);
 					}
 				}
 				else if ((prevState._left == 1 && curState._left == 0)) {
-					// TODO: 여기서 지뢰 전체의 맵을 검색하는 로직을 추가해야합니다.
-					GameObject::SetResourceID(OPENED_ONE);
+					if (GameObject::GetResourceID() != FLAG_POINT) {
+						// TODO: 여기서 지뢰 전체의 맵을 검색하는 로직을 추가해야합니다.
+						GameObject::SetResourceID(OPENED_ONE);
+					}
 				}
 				else if (prevState._right == 0 && curState._right == 1) {
-					if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
+					if (GameObject::GetResourceID() != FLAG_POINT || GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 						GameObject::SetResourceID(FLAG_POINT);
 					}
 					else if (GameObject::GetResourceID() == FLAG_POINT) {

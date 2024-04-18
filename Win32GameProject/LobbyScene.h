@@ -41,7 +41,7 @@ public:
     bool check();
     void GameWin();
     int GetCurTime() { return _playTime; }
-    void SetCurTime(int num) { _playTime += num; }
+    void SetCurTime(int num) { _playTime = num; }
     void ResetTimer() { _playTime = 0; }
 
 private:

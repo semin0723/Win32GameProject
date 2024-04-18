@@ -6,6 +6,7 @@
 #include "Tile.h"
 #include "ResetTile.h"
 #include "UI.h"
+#include "Timer.h"
 
 class Tile;
 
@@ -27,6 +28,7 @@ protected:
 	void AddObject(Tile* obj, int x, int y) { _Objects[y][x] = obj; }
 	void InitResetButton(ResetTile* obj) { _ResetButton = obj; }
 	void AddUI(UI* obj) { _UIs.push_back(obj); }
+	void AddTimer(Timer* obj) { _Timers.push_back(obj); }
 	void ChangeObjectState(int x, int y, int StateID) { _Objects[y][x]->SetResourceID(StateID); }
 	void ChangeResetObjectState(int StateID) { _ResetButton->SetResourceID(StateID); }
 	int GetObjectState(int x, int y) { return _Objects[y][x]->GetResourceID(); }
@@ -35,5 +37,6 @@ private:
 	Tile* _Objects[20][30];
 	ResetTile* _ResetButton;
 	Vector<UI*> _UIs;
+	Vector<Timer*> _Timers;
 	const char* _SceneName;
 };

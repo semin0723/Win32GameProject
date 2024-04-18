@@ -84,6 +84,9 @@
     <ClInclude Include="ResetTile.h">
       <Filter>소스 파일\GameObject</Filter>
     </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -126,6 +129,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ResetTile.cpp">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
       <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
   </ItemGroup>

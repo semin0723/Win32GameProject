@@ -5,6 +5,7 @@
 #include "Tile.h"
 #include "ResetTile.h"
 #include "UI.h"
+#include "Timer.h"
 
 class Scene;
 
@@ -31,26 +32,27 @@ public:
     void SetMineCount(int count) { _MineCount = count; }
     bool isPlaying() { return _isPlaying; }
     int GetMineCount() { return _MineCount; }
-    const int GetMineState(int x, int y) {
-        return _MineMap[y][x];
-    }
-    const bool GetOpenState(int x, int y) {
-        return _isMapOpen[y][x];
-    }
+    const int GetMineState(int x, int y) { return _MineMap[y][x]; }
+    const bool GetOpenState(int x, int y) { return _isMapOpen[y][x]; }
     void SetOpenState(int x, int y, bool state) { _isMapOpen[y][x] = state; }
     void OpenMines(int select_x, int select_y);
     void GameOver();
     void ResetMap();
     bool check();
     void GameWin();
-    
+    int GetCurTime() { return _playTime; }
+    void SetCurTime(int num) { _playTime += num; }
+    void ResetTimer() { _playTime = 0; }
+
 private:
     static LobbyScene* instance;
-    bool _isPlaying = true;
+    bool _isPlaying = false;
     int _MineMap[20][30];
     bool _isMapOpen[20][30];
     int _MineCount = 99;
     int _defaultMineCount = 99;
+
+    int _playTime = 0;
     
 };
 

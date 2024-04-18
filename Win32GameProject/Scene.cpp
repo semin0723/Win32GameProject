@@ -15,6 +15,9 @@ Scene::~Scene() {
 	for (int i = 0; i < _UIs.size(); i++) {
 		delete _UIs[i];
 	}
+	for (int i = 0; i < _Timers.size(); i++) {
+		delete _Timers[i];
+	}
 }
 
 void Scene::update() {
@@ -27,6 +30,9 @@ void Scene::update() {
 	for (int i = 0; i < _UIs.size(); i++) {
 		_UIs[i]->update();
 	}
+	for (int i = 0; i < _Timers.size(); i++) {
+		_Timers[i]->update();;
+	}
 }
 
 void Scene::render(HDC mainDC, HINSTANCE hIns) {
@@ -38,5 +44,8 @@ void Scene::render(HDC mainDC, HINSTANCE hIns) {
 	_ResetButton->render(mainDC, hIns, 0, 0);
 	for (int i = 0; i < _UIs.size(); i++) {
 		_UIs[i]->render(mainDC, hIns, 0, 0);
+	}
+	for (int i = 0; i < _Timers.size(); i++) {
+		_Timers[i]->render(mainDC, hIns, 0, 0);
 	}
 }

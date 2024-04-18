@@ -30,9 +30,14 @@ void LobbyScene::start() {
 	tile->SetResourceID(SMILE_FACE);
 	tile->SetLocation(Vector3(float(511), float(36), 0));
 	Scene::InitResetButton(tile);
+
 	UI* MineCount = new UI;
 	MineCount->SetLocation(Vector3((float)60, (float)44, 0));
 	Scene::AddUI(MineCount);
+
+	Timer* timer = new Timer;
+	timer->SetLocation(Vector3((float)910, (float)44, 0));
+	Scene::AddTimer(timer);
 	MapInit();
 }
 
@@ -182,6 +187,7 @@ void LobbyScene::GameOver()
 void LobbyScene::ResetMap()
 {
 	MapInit();
+	ResetTimer();
 	for (int y = 0; y < count_y; y++) {
 		for (int x = 0; x < count_x; x++) {
 			Scene::ChangeObjectState(x, y, GetResourceID(11));

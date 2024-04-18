@@ -26,5 +26,5 @@ void TimeManager::UpdateTime() {
 }
 
 const float TimeManager::GetDeltaTime(){
-	return (float)(_deltaTime / 100.f);
+	return (float)(_deltaTime / 1000.f);
 }

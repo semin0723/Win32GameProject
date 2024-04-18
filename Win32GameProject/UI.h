@@ -11,8 +11,9 @@ public:
 	~UI();
 
 	virtual void update();
-	virtual void render(HDC mainDC);
+	virtual void render(HDC mainDC, HINSTANCE hIns, int x, int y);
 
 private:
-
+	wchar_t* _text;
+	int _textlen;
 };

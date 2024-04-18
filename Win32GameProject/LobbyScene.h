@@ -3,6 +3,8 @@
 #include "LobbyScene.h"
 #include "GameObject.h"
 #include "Tile.h"
+#include "ResetTile.h"
+#include "UI.h"
 
 class Scene;
 
@@ -23,8 +25,12 @@ public:
     static void DestroyInstance();
 
     void MapInit();
+    char* convertnum(int num);
     void OpenMap(int x, int y);
     void OpenBlank(int x, int y);
+    void SetMineCount(int count) { _MineCount = count; }
+    bool isPlaying() { return _isPlaying; }
+    int GetMineCount() { return _MineCount; }
     const int GetMineState(int x, int y) {
         return _MineMap[y][x];
     }
@@ -32,13 +38,19 @@ public:
         return _isMapOpen[y][x];
     }
     void SetOpenState(int x, int y, bool state) { _isMapOpen[y][x] = state; }
+    void OpenMines(int select_x, int select_y);
     void GameOver();
     void ResetMap();
+    bool check();
     void GameWin();
     
 private:
     static LobbyScene* instance;
+    bool _isPlaying = true;
     int _MineMap[20][30];
     bool _isMapOpen[20][30];
+    int _MineCount = 99;
+    int _defaultMineCount = 99;
+    
 };
 

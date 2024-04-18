@@ -134,6 +134,7 @@
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="queue.hpp" />
+    <ClInclude Include="ResetTile.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Resource.h" />
@@ -152,6 +153,7 @@
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
     <ClCompile Include="Mine.cpp" />
+    <ClCompile Include="ResetTile.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -166,6 +168,11 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
+    <Image Include="Win_Face.bmp" />
+    <Image Include="Died_Face.bmp" />
+    <Image Include="Smile_Face.bmp" />
+    <Image Include="Opened_Mine.bmp" />
+    <Image Include="Mine.bmp" />
     <Image Include="Flag.bmp" />
     <Image Include="Opened_Eight.bmp" />
     <Image Include="Opened_Seven.bmp" />

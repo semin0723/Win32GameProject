@@ -1,5 +1,6 @@
 ﻿#include "Win32GameProject.h"
 #include "GameManager.h"
+#include "globalheader.h"
 
 namespace global
 {

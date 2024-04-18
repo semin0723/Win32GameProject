@@ -81,6 +81,9 @@
     <ClInclude Include="queue.hpp">
       <Filter>소스 파일\Container</Filter>
     </ClInclude>
+    <ClInclude Include="ResetTile.h">
+      <Filter>소스 파일\GameObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -121,6 +124,9 @@
     </ClCompile>
     <ClCompile Include="Mine.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetTile.cpp">
+      <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,21 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Flag.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Mine.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Opened_Mine.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Smile_Face.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Died_Face.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Win_Face.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

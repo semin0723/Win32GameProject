@@ -5,8 +5,8 @@
 LobbyScene* LobbyScene::instance = nullptr;
 
 LobbyScene::LobbyScene() {
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 30; j++) {
+	for (int i = 0; i < count_y; i++) {
+		for (int j = 0; j < count_x; j++) {
 			_MineMap[i][j] = 0;
 			_isMapOpen[i][j] = 0;
 		}
@@ -18,15 +18,21 @@ LobbyScene::~LobbyScene() {
 }
 
 void LobbyScene::start() {
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 30; j++) {
+	for (int i = 0; i < count_y; i++) {
+		for (int j = 0; j < count_x; j++) {
 			Tile* tile = new Tile;
 			tile->SetResourceID(UNOPENED);
 			tile->SetLocation(Vector3((float)(32 + 32 * j), (float)(96 + 32 * i), 0));
 			Scene::AddObject(tile, j, i);
 		}
 	}
-	//TODO: 여기서 지뢰의 맵을 구성하고, 각 맵에 해당하는 지뢰 리소스를 넣어야 합니다.
+	ResetTile* tile = new ResetTile;
+	tile->SetResourceID(SMILE_FACE);
+	tile->SetLocation(Vector3(float(511), float(36), 0));
+	Scene::InitResetButton(tile);
+	UI* MineCount = new UI;
+	MineCount->SetLocation(Vector3((float)60, (float)44, 0));
+	Scene::AddUI(MineCount);
 	MapInit();
 }
 
@@ -57,26 +63,26 @@ int GetRandomNum(int size) {
 }
 
 void LobbyScene::MapInit() {
-	for (int i = 0; i < 20; i++) {
-		for (int j = 0; j < 30; j++) {
+	for (int i = 0; i < count_y; i++) {
+		for (int j = 0; j < count_x; j++) {
 			_MineMap[i][j] = 0;
 			_isMapOpen[i][j] = 0;
 		}
 	}
-	int MineCount = 99;
+	int MineCount = _defaultMineCount;
 	while (MineCount > 0) {
-		int x = GetRandomNum(30), y = GetRandomNum(20);
+		int x = GetRandomNum(count_x), y = GetRandomNum(count_y);
 		if (_MineMap[y][x] == 0) {
 			_MineMap[y][x] = 10;
 			MineCount--;
 		}
 	}
-	for (int y = 0; y < 20; y++) {
-		for (int x = 0; x < 30; x++) {
+	for (int y = 0; y < count_y; y++) {
+		for (int x = 0; x < count_x; x++) {
 			if (_MineMap[y][x] == 10) {
 				for (int c = 0; c < 8; c++) {
 					int nx = x + dx[c], ny = y + dy[c];
-					if (nx >= 0 && nx < 30 && ny >= 0 && ny < 20) {
+					if (nx >= 0 && nx < count_x && ny >= 0 && ny < count_y) {
 						if (_MineMap[ny][nx] < 9) {
 							_MineMap[ny][nx]++;
 						}
@@ -85,6 +91,12 @@ void LobbyScene::MapInit() {
 			}
 		}
 	}
+}
+
+char* LobbyScene::convertnum(int num) {
+	char convert[10];
+	sprintf_s(convert, "%d", num);
+	return convert;
 }
 
 int GetResourceID(int state) {
@@ -107,6 +119,16 @@ int GetResourceID(int state) {
 		return OPENED_SEVEN;
 	case 8:
 		return OPENED_EIGHT;
+	case 10:
+		return UNOPENED_MINE;
+	case 11:
+		return UNOPENED_UNFOCUS;
+	case 12:
+		return FLAG_POINT;
+	case 13:
+		return DIED_FACE;
+	case 14:
+		return WIN_FACE;
 	}
 }
 
@@ -119,7 +141,7 @@ void LobbyScene::OpenBlank(int x, int y) {
 		save.pop();
 		for (int k = 0; k < 8; k++) {
 			int ny = cy + dy[k], nx = cx + dx[k];
-			if (ny >= 0 && ny < 20 && nx >= 0 && nx < 30) {
+			if (ny >= 0 && ny < count_y && nx >= 0 && nx < count_x) {
 				if (_MineMap[ny][nx] < 9 && _isMapOpen[ny][nx] == false) {
 					_isMapOpen[ny][nx] = 1;
 					Scene::ChangeObjectState(nx, ny, GetResourceID(_MineMap[ny][nx]));
@@ -140,17 +162,60 @@ void LobbyScene::OpenMap(int x, int y) {
 	}
 }
 
+void LobbyScene::OpenMines(int select_x, int select_y) {
+	for (int y = 0; y < count_y; y++) {
+		for (int x = 0; x < count_x; x++) {
+			if (y == select_y && x == select_x) continue;
+			if (_MineMap[y][x] == 10) {
+				Scene::ChangeObjectState(x, y, GetResourceID(_MineMap[y][x]));
+			}
+		}
+	}
+}
+
 void LobbyScene::GameOver()
 {
-	
+	_isPlaying = false;
+	Scene::ChangeResetObjectState(GetResourceID(13));
 }
 
 void LobbyScene::ResetMap()
 {
 	MapInit();
+	for (int y = 0; y < count_y; y++) {
+		for (int x = 0; x < count_x; x++) {
+			Scene::ChangeObjectState(x, y, GetResourceID(11));
+		}
+	}
+	_isPlaying = true;
+	_MineCount = 99;
+}
+
+bool LobbyScene::check() {
+	int MineFlagCount = 0;
+	for (int y = 0; y < count_y; y++) {
+		for (int x = 0; x < count_x; x++) {
+			if ((Scene::GetObjectState(x, y) == FLAG_POINT) && _MineMap[y][x] == 10) {
+				MineFlagCount++;
+			}
+			if ((Scene::GetObjectState(x, y) == UNOPENED_UNFOCUS)) {
+				MineFlagCount++;
+			}
+		}
+	}
+	if (MineFlagCount == _defaultMineCount) return true;
+	else return false;
 }
 
 void LobbyScene::GameWin()
 {
-
+	_isPlaying = false;
+	for (int y = 0; y < count_y; y++) {
+		for (int x = 0; x < count_x; x++) {
+			if ((Scene::GetObjectState(x, y) == UNOPENED_UNFOCUS)) {
+				Scene::ChangeObjectState(x, y, GetResourceID(12));
+			}
+		}
+	}
+	Scene::ChangeResetObjectState(GetResourceID(14));
 }

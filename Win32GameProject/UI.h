@@ -17,3 +17,5 @@ private:
 	wchar_t* _text;
 	int _textlen;
 };
+
+// TODO: UI 텍스트의 폰트 사이즈를 키우고, 각 버튼에 대해 도움말 문구도 추가합니다.

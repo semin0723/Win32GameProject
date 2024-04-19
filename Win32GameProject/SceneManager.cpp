@@ -40,3 +40,7 @@ void SceneManager::update() {
 void SceneManager::render(HDC mainDC, HINSTANCE hIns) {
 	_curScene->render(mainDC, hIns);
 }
+
+// TODO: 씬을 여러개 만들어서 씬 전환 기능을 추가합니다.
+//		- 메인 화면 씬을 만들고, 초급 중급 고급 순으로 난이도 세분화를 시킵니다.
+//		- 버튼을 누르면 해당 난이도의 씬으로 이동하는 기능을 만듭니다.

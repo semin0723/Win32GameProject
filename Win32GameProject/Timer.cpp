@@ -32,6 +32,7 @@ void Timer::update()
 
 void Timer::render(HDC mainDC, HINSTANCE hIns, int x, int y)
 {
+	SetBkMode(mainDC, TRANSPARENT);
 	SetTextAlign(mainDC, TA_CENTER);
 	TextOut(mainDC, GameObject::GetLocation()._x, GameObject::GetLocation()._y, _text, _textlen);
 }

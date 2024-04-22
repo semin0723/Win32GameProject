@@ -134,6 +134,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="globalheader.h" />
+    <ClInclude Include="GuideText.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="MainBG.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="ButtonStart.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GuideText.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
     <ClCompile Include="MainBG.cpp" />

@@ -6,7 +6,7 @@ enum class LAYER_GROUP {
 	TITLE,
 	BUTTON,
 	
-
+	UI,
 	END = 32,
 };
 

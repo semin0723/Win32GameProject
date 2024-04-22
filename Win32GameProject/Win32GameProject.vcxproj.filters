@@ -111,6 +111,9 @@
     <ClInclude Include="BackButton.h">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClInclude>
+    <ClInclude Include="GuideText.h">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Win32GameProject.cpp">
@@ -174,6 +177,9 @@
       <Filter>소스 파일\GameObject\MainMenu</Filter>
     </ClCompile>
     <ClCompile Include="BackButton.cpp">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GuideText.cpp">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClCompile>
   </ItemGroup>

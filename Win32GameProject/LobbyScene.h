@@ -7,6 +7,7 @@
 #include "Timer.h"
 #include "BackGround.h"
 #include "BackButton.h"
+#include "GuideText.h"
 
 class Scene;
 

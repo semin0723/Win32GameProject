@@ -46,6 +46,10 @@ void LobbyScene::start() {
 	MineCount->SetLocation(Vector3((float)60, (float)44, 0));
 	Scene::AddUI(MineCount);
 
+	GuideText* text = new GuideText;
+	text->SetLocation(Vector3(300, 44, 0));
+	Scene::AddGameObject(text, (int)LAYER_GROUP::UI);
+
 	Timer* timer = new Timer;
 	timer->SetLocation(Vector3((float)910, (float)44, 0));
 	Scene::AddTimer(timer);

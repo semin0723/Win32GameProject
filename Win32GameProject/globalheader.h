@@ -2,20 +2,12 @@
 #include "Vector.hpp"
 
 enum class LAYER_GROUP {
-	BLANK,
-	ONE,
-	TWO,
-	THREE,
-	FOUR,
-	FIVE,
-	SIX,
-	SEVEN,
-	EIGHT,
-	NINE,
-	MINE,
-	UNOPEN,
-	FLAG,
-	END = 13,
+	BG,
+	TITLE,
+	BUTTON,
+	
+
+	END = 32,
 };
 
 enum class SCENE_LAYER {

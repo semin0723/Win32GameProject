@@ -30,7 +30,7 @@ void Timer::update()
 	_textlen = len;
 }
 
-void Timer::render(HDC mainDC, HINSTANCE hIns, int x, int y)
+void Timer::render(HDC mainDC, HINSTANCE hIns)
 {
 	SetBkMode(mainDC, TRANSPARENT);
 	SetTextAlign(mainDC, TA_CENTER);

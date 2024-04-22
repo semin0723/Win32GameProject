@@ -8,7 +8,7 @@ public:
 	~Timer();
 
 	virtual void update();
-	virtual void render(HDC mainDC, HINSTANCE hIns, int x, int y);
+	virtual void render(HDC mainDC, HINSTANCE hIns);
 
 private:
 	int _textlen;

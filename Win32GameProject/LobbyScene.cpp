@@ -18,19 +18,24 @@ LobbyScene::~LobbyScene() {
 }
 
 void LobbyScene::start() {
+	BackGround* bg = new BackGround;
+	bg->SetLocation(Vector3(0, 0, 0));
+	bg->SetResourceID((int)MAIN_BACKGROUND);
+	Scene::AddGameObject(bg, (int)LAYER_GROUP::BG);
 	for (int i = 0; i < count_y; i++) {
 		for (int j = 0; j < count_x; j++) {
 			Tile* tile = new Tile;
-			tile->SetResourceID(UNOPENED);
+			tile->SetResourceID(UNOPENED_UNFOCUS);
 			tile->SetLocation(Vector3((float)(32 + 32 * j), (float)(96 + 32 * i), 0));
 			Scene::AddObject(tile, j, i);
 		}
 	}
 	ResetTile* tile = new ResetTile;
 	tile->SetResourceID(SMILE_FACE);
-	tile->SetLocation(Vector3(float(511), float(36), 0));
-	Scene::InitResetButton(tile);
-
+	tile->SetLocation(Vector3(float(512), float(36), 0));
+	tile->Setname("Reset");
+	Scene::AddGameObject(tile, (int)LAYER_GROUP::BUTTON);
+		
 	UI* MineCount = new UI;
 	MineCount->SetLocation(Vector3((float)60, (float)44, 0));
 	Scene::AddUI(MineCount);
@@ -181,7 +186,7 @@ void LobbyScene::OpenMines(int select_x, int select_y) {
 void LobbyScene::GameOver()
 {
 	_isPlaying = false;
-	Scene::ChangeResetObjectState(GetResourceID(13));
+	Scene::ChangeResetObjectState("Reset", GetResourceID(13));
 }
 
 void LobbyScene::ResetMap()
@@ -223,5 +228,5 @@ void LobbyScene::GameWin()
 			}
 		}
 	}
-	Scene::ChangeResetObjectState(GetResourceID(14));
+	Scene::ChangeResetObjectState("Reset", GetResourceID(14));
 }

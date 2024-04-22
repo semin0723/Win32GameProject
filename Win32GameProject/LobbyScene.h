@@ -1,11 +1,11 @@
 #pragma once
 #include "Scene.h"
-#include "LobbyScene.h"
 #include "GameObject.h"
 #include "Tile.h"
 #include "ResetTile.h"
 #include "UI.h"
 #include "Timer.h"
+#include "BackGround.h"
 
 class Scene;
 

@@ -17,7 +17,7 @@ void ResetTile::update()
 	int cur_x = curState._x / 32, cur_y = curState._y / 32;
 	int obj_x = GameObject::GetLocation()._x / 32, obj_y = GameObject::GetLocation()._y / 32;
 	int state = LobbyScene::GetInstance()->GetMineState(obj_x - 1, obj_y - 3);
-	if (prev_x == 15 && cur_x == 15 && prev_y == 1 && cur_y == 1) {
+	if (prev_x == 16 && cur_x == 16 && prev_y == 1 && cur_y == 1) {
 		if (prev_x == obj_x && cur_x == obj_x && prev_y == obj_y && cur_y == obj_y) {
 			if ((prev_x == cur_x && prev_y == cur_y)) {
 				if ((prevState._left == 1 && curState._left == 0)) { // ¡¬≈¨∏Ø ∂√¿ª ∂ß.
@@ -29,7 +29,7 @@ void ResetTile::update()
 	}
 }
 
-void ResetTile::render(HDC mainDC, HINSTANCE hIns, int x, int y)
+void ResetTile::render(HDC mainDC, HINSTANCE hIns)
 {
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
@@ -38,7 +38,7 @@ void ResetTile::render(HDC mainDC, HINSTANCE hIns, int x, int y)
 	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&myInfo);
 	OldBitmap = (HBITMAP)SelectObject(tmp, MainBitmap);
 
-	BitBlt(mainDC, 480, 36, myInfo.bmWidth, myInfo.bmHeight, tmp, 0, 0, SRCCOPY);
+	BitBlt(mainDC, GameObject::GetLocation()._x, GameObject::GetLocation()._y, myInfo.bmWidth, myInfo.bmHeight, tmp, 0, 0, SRCCOPY);
 
 	SelectObject(tmp, OldBitmap);
 	DeleteObject(MainBitmap);

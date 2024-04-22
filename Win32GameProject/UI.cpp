@@ -21,7 +21,7 @@ void UI::update() {
 	_textlen = len;
 }
 
-void UI::render(HDC mainDC, HINSTANCE hIns, int x, int y) {
+void UI::render(HDC mainDC, HINSTANCE hIns) {
 	SetTextAlign(mainDC, TA_CENTER);
 	TextOut(mainDC, GameObject::GetLocation()._x, GameObject::GetLocation()._y, _text, _textlen);
 }

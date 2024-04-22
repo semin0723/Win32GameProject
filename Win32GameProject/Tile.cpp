@@ -95,7 +95,7 @@ void Tile::update() {
 	}
 }
 
-void Tile::render(HDC mainDC, HINSTANCE hIns, int x, int y) {
+void Tile::render(HDC mainDC, HINSTANCE hIns) {
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
 	HDC tmp = CreateCompatibleDC(mainDC);
@@ -103,8 +103,7 @@ void Tile::render(HDC mainDC, HINSTANCE hIns, int x, int y) {
 	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&myInfo);
 	OldBitmap = (HBITMAP)SelectObject(tmp, MainBitmap);
 
-	GameObject::SetLocation( Vector3((float)(32 + myInfo.bmWidth * x), (float)(96 + myInfo.bmHeight * y), 0) );
-	BitBlt(mainDC, 32 + myInfo.bmWidth * x, 96 + myInfo.bmHeight * y, myInfo.bmWidth, myInfo.bmHeight, tmp, 0, 0, SRCCOPY);
+	BitBlt(mainDC, GameObject::GetLocation()._x, GameObject::GetLocation()._y, myInfo.bmWidth, myInfo.bmHeight, tmp, 0, 0, SRCCOPY);
 
 	SelectObject(tmp, OldBitmap);
 	DeleteObject(MainBitmap);

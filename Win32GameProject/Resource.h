@@ -37,8 +37,9 @@
 #define TITLE_IMAGE                     152
 #define IDB_BITMAP6                     154
 #define BUTTON_PLAY                     154
-#define IDB_BITMAP7                     155
 #define BUTTON_PLAY_CLICKED             155
+#define IDB_BITMAP7                     156
+#define BUTTON_BACK                     156
 #define IDC_STATIC                      -1
 #define UNOPENED_UNFOCUS                65535
 
@@ -47,7 +48,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        156
+#define _APS_NEXT_RESOURCE_VALUE        157
 #define _APS_NEXT_COMMAND_VALUE         32771
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           110

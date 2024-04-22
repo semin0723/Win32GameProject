@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BackButton.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="ButtonStart.h" />
     <ClInclude Include="framework.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="Win32GameProject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BackButton.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="ButtonStart.cpp" />
     <ClCompile Include="GameManager.cpp" />
@@ -180,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
+    <Image Include="Back_Button.bmp" />
     <Image Include="Play_Button_Clicked.bmp" />
     <Image Include="Play_Button.bmp" />
     <Image Include="Title.bmp" />

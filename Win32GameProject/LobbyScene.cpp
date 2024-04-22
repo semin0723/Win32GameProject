@@ -30,6 +30,12 @@ void LobbyScene::start() {
 			Scene::AddObject(tile, j, i);
 		}
 	}
+	BackButton* bbtn = new BackButton;
+	bbtn->SetLocation(Vector3(576, 36, 0));
+	bbtn->SetResourceID(BUTTON_BACK);
+	bbtn->Setname("Back");
+	Scene::AddGameObject(bbtn, (int)LAYER_GROUP::BUTTON);
+
 	ResetTile* tile = new ResetTile;
 	tile->SetResourceID(SMILE_FACE);
 	tile->SetLocation(Vector3(float(512), float(36), 0));

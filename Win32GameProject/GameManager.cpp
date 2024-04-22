@@ -22,7 +22,6 @@ namespace game
 
 	void GameManager::Update()
 	{
-		TimeManager::GetInstance()->UpdateTime();
 		InputSystem::GetInstance()->updateMouse();
 		SceneManager::GetInstance()->update();
 		InputSystem::GetInstance()->ResetInput();
@@ -70,6 +69,8 @@ namespace game
 			}
 			else
 			{
+				TimeManager::GetInstance()->UpdateTime();
+
 				FixeUpdate();
 
 				Update();

@@ -25,6 +25,12 @@
     <Filter Include="소스 파일\Container">
       <UniqueIdentifier>{08df48b5-a095-4599-b3bf-b0699fe694e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\GameObject\LobbySceneObject">
+      <UniqueIdentifier>{5ad13cad-946c-4e9a-a4b3-cd3f3680cbe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\GameObject\MainMenu">
+      <UniqueIdentifier>{738576d2-f7dd-410f-8f84-465009c0144c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -51,15 +57,6 @@
     <ClInclude Include="TimeSystem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="UI.h">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>소스 파일\Scene</Filter>
     </ClInclude>
@@ -81,11 +78,35 @@
     <ClInclude Include="queue.hpp">
       <Filter>소스 파일\Container</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>소스 파일\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
     <ClInclude Include="ResetTile.h">
-      <Filter>소스 파일\GameObject</Filter>
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>소스 파일\GameObject</Filter>
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="UI.h">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Title.h">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonStart.h">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="MainBG.h">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -104,15 +125,6 @@
     <ClCompile Include="TimeSystem.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="UI.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>소스 파일\GameObject</Filter>
-    </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>소스 파일\Scene</Filter>
     </ClCompile>
@@ -128,11 +140,35 @@
     <ClCompile Include="Mine.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>소스 파일\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
     <ClCompile Include="ResetTile.cpp">
-      <Filter>소스 파일\GameObject</Filter>
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>소스 파일\GameObject</Filter>
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="UI.cpp">
+      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Title.cpp">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonStart.cpp">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="MainBG.cpp">
+      <Filter>소스 파일\GameObject\MainMenu</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +235,18 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Win_Face.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="WhiteBoard.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Title.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Play_Button.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="Play_Button_Clicked.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

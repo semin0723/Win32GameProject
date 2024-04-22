@@ -127,12 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BackGround.h" />
+    <ClInclude Include="ButtonStart.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="globalheader.h" />
     <ClInclude Include="InputSystem.h" />
     <ClInclude Include="LobbyScene.h" />
+    <ClInclude Include="MainBG.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="queue.hpp" />
     <ClInclude Include="ResetTile.h" />
     <ClInclude Include="Tile.h" />
@@ -143,16 +147,21 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimeSystem.h" />
+    <ClInclude Include="Title.h" />
     <ClInclude Include="UI.h" />
     <ClInclude Include="Vector.hpp" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Win32GameProject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="ButtonStart.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="InputSystem.cpp" />
     <ClCompile Include="LobbyScene.cpp" />
+    <ClCompile Include="MainBG.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Mine.cpp" />
     <ClCompile Include="ResetTile.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -161,6 +170,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimeSystem.cpp" />
+    <ClCompile Include="Title.cpp" />
     <ClCompile Include="UI.cpp" />
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="Win32GameProject.cpp" />
@@ -170,6 +180,10 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="bitmap1.bmp" />
+    <Image Include="Play_Button_Clicked.bmp" />
+    <Image Include="Play_Button.bmp" />
+    <Image Include="Title.bmp" />
+    <Image Include="WhiteBoard.bmp" />
     <Image Include="Win_Face.bmp" />
     <Image Include="Died_Face.bmp" />
     <Image Include="Smile_Face.bmp" />

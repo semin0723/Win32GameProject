@@ -29,40 +29,40 @@ Scene::~Scene() {
 void Scene::update() {
 	for (int i = 0; i < (int)LAYER_GROUP::END; i++) {
 		for (int j = 0; j < _GameObjects[i].size(); j++) {
-			_GameObjects[i][j]->update();
+			if(_GameObjects[i][j]->Enable() == true) _GameObjects[i][j]->update();
 		}
 	}
 	for (int i = 0; i < count_y; i++) {
 		for (int j = 0; j < count_x; j++) {
-			if (_Objects[i][j] == nullptr) continue;
+			if (_Objects[i][j] == nullptr || _Objects[i][j]->Enable() == false) continue;
 			_Objects[i][j]->update();
 		}
 	}
 	for (int i = 0; i < _UIs.size(); i++) {
-		_UIs[i]->update();
+		if(_UIs[i]->Enable() == true) _UIs[i]->update();
 	}
 	for (int i = 0; i < _Timers.size(); i++) {
-		_Timers[i]->update();;
+		if (_Timers[i]->Enable() == true) _Timers[i]->update();;
 	}
 }
 
 void Scene::render(HDC mainDC, HINSTANCE hIns) {
 	for (int i = 0; i < (int)LAYER_GROUP::END; i++) {
 		for (int j = 0; j < _GameObjects[i].size(); j++) {
-			_GameObjects[i][j]->render(mainDC, hIns);
+			if (_GameObjects[i][j]->Enable() == true) _GameObjects[i][j]->render(mainDC, hIns);
 		}
 	}
 	for (int i = 0; i < count_y; i++) {
 		for (int j = 0; j < count_x; j++) {
-			if (_Objects[i][j] == nullptr) continue;
+			if (_Objects[i][j] == nullptr || _Objects[i][j]->Enable() == false) continue;
 			_Objects[i][j]->render(mainDC, hIns);
 		}
 	}
 	for (int i = 0; i < _UIs.size(); i++) {
-		_UIs[i]->render(mainDC, hIns);
+		if (_UIs[i]->Enable() == true) _UIs[i]->render(mainDC, hIns);
 	}
 	for (int i = 0; i < _Timers.size(); i++) {
-		_Timers[i]->render(mainDC, hIns);
+		if (_Timers[i]->Enable() == true) _Timers[i]->render(mainDC, hIns);
 	}
 }
 

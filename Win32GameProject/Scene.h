@@ -8,6 +8,7 @@
 #include "UI.h"
 #include "Timer.h"
 #include "BackGround.h"
+#include "PathManager.h"
 
 class Tile;
 

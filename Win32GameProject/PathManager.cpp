@@ -27,6 +27,6 @@ void PathManager::DestroyInstance()
 void PathManager::InitPath()
 {
 	GetCurrentDirectory(255, _ContentPath);
-	wcscat_s(_ContentPath, L"\\Resource\\Image\\");
+	wcscat_s(_ContentPath, 255, L"\\Resource\\Image\\");
 	SetWindowText(global::GetWinApp().GetWindow(), _ContentPath);
 }

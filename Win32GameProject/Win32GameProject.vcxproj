@@ -139,8 +139,10 @@
     <ClInclude Include="LobbyScene.h" />
     <ClInclude Include="MainBG.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="PathManager.h" />
     <ClInclude Include="queue.hpp" />
     <ClInclude Include="ResetTile.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="RenderSystem.h" />
     <ClInclude Include="Resource.h" />
@@ -167,7 +169,9 @@
     <ClCompile Include="MainBG.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Mine.cpp" />
+    <ClCompile Include="PathManager.cpp" />
     <ClCompile Include="ResetTile.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="RenderSystem.cpp" />
     <ClCompile Include="Scene.cpp" />

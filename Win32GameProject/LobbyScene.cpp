@@ -18,6 +18,9 @@ LobbyScene::~LobbyScene() {
 }
 
 void LobbyScene::start() {
+	wchar_t FilePath[256] = L"";
+	wcscat_s(FilePath, 255, PathManager::GetInstance()->GetContentPath());
+
 	BackGround* bg = new BackGround;
 	bg->SetLocation(Vector3(0, 0, 0));
 	bg->SetDirectory("MainMap.bmp");

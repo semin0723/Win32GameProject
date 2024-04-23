@@ -11,12 +11,7 @@ public:
 	static void DestroyInstance();
 
 	void InitPath();
-	void GetImagePath(wchar_t* pathname, const wchar_t* ImageFile) { 
-		wchar_t tmp[256] = L"";
-		wcscat_s(tmp, _ContentPath);
-		wcscat_s(tmp, ImageFile);
-		wcscpy_s(pathname, wcslen(tmp), tmp);
-	}
+	wchar_t* GetContentPath() { return _ContentPath; }
 
 private:
 	static PathManager* instance;

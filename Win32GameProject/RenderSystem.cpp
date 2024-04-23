@@ -30,7 +30,7 @@ void RenderSystem::DestroyInstance() {
 }
 
 void RenderSystem::StartDraw() {
-	_MainBitmap = LoadBitmap(_hInstance, MAKEINTRESOURCE(WHITE_BOARD));
+	_MainBitmap = (HBITMAP)LoadImage(NULL, TEXT("WhiteBoard.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 	_OldBitmap = (HBITMAP)SelectObject(_backDC, _MainBitmap);
 }
 

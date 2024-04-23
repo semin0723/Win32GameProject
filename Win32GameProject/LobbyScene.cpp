@@ -20,13 +20,11 @@ LobbyScene::~LobbyScene() {
 void LobbyScene::start() {
 	BackGround* bg = new BackGround;
 	bg->SetLocation(Vector3(0, 0, 0));
-	bg->SetResourceID((int)MAIN_BACKGROUND);
 	bg->SetDirectory("MainMap.bmp");
 	Scene::AddGameObject(bg, (int)LAYER_GROUP::BG);
 	for (int i = 0; i < count_y; i++) {
 		for (int j = 0; j < count_x; j++) {
 			Tile* tile = new Tile;
-			tile->SetResourceID(UNOPENED_UNFOCUS);
 			tile->SetDirectory("UnOpenedTile.bmp");
 			tile->SetLocation(Vector3((float)(32 + 32 * j), (float)(96 + 32 * i), 0));
 			Scene::AddObject(tile, j, i);
@@ -34,13 +32,11 @@ void LobbyScene::start() {
 	}
 	BackButton* bbtn = new BackButton;
 	bbtn->SetLocation(Vector3(576, 36, 0));
-	bbtn->SetResourceID(BUTTON_BACK);
 	bbtn->SetDirectory("Back_Button.bmp");
 	bbtn->Setname("Back");
 	Scene::AddGameObject(bbtn, (int)LAYER_GROUP::BUTTON);
 
 	ResetTile* tile = new ResetTile;
-	tile->SetResourceID(SMILE_FACE);
 	tile->SetDirectory("Smile_Face.bmp");
 	tile->SetLocation(Vector3(float(512), float(36), 0));
 	tile->Setname("Reset");

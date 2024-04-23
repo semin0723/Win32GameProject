@@ -20,8 +20,7 @@ void ButtonStart::update()
 	if (prev_x >= 432 && cur_x >= 432 && prev_y >= 480 && cur_y >= 480 &&
 		prev_x <= 592 && cur_x <= 592 && prev_y <= 544 && cur_y <= 544) {
 		if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {
-			if (GameObject::GetResourceID() == BUTTON_PLAY) {
-				GameObject::SetResourceID(BUTTON_PLAY_CLICKED);
+			if (wcscmp(GameObject::GetDirectory(), L"Play_Button.bmp") == 0) {
 				GameObject::SetDirectory("Play_Button_Clicked.bmp");
 			}
 		}
@@ -30,7 +29,6 @@ void ButtonStart::update()
 		}
 	}
 	else {
-		GameObject::SetResourceID(BUTTON_PLAY);
 		GameObject::SetDirectory("Play_Button.bmp");
 	}
 }

@@ -14,18 +14,15 @@ void MainMenu::start()
 {
 	MainBG* bg = new MainBG;
 	bg->SetLocation(Vector3(0, 0, 0));
-	bg->SetResourceID(MAIN_BACKGROUND);
 	bg->SetDirectory("MainMap.bmp");
 	Scene::AddGameObject(bg, (int)LAYER_GROUP::BG);
 	Title* title = new Title;
 	title->SetLocation(Vector3(288, 128, 0));
-	title->SetResourceID(TITLE_IMAGE);
 	title->SetDirectory("Title.bmp");
 	Scene::AddGameObject(title, (int)LAYER_GROUP::TITLE);
 
 	ButtonStart* btnStart = new ButtonStart;
 	btnStart->SetLocation(Vector3(432, 480, 0));
-	btnStart->SetResourceID(BUTTON_PLAY);
 	btnStart->SetDirectory("PlayButton.bmp");
 	btnStart->Setname("Start");
 	Scene::AddGameObject(btnStart, (int)LAYER_GROUP::BUTTON);

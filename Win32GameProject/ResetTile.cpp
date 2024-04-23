@@ -22,7 +22,6 @@ void ResetTile::update()
 			if ((prev_x == cur_x && prev_y == cur_y)) {
 				if ((prevState._left == 1 && curState._left == 0)) { // ÁÂÅ¬¸¯ ¶ÃÀ» ¶§.
 					LobbyScene::GetInstance()->ResetMap();
-					GameObject::SetResourceID(SMILE_FACE);
 					GameObject::SetDirectory("Smile_Face.bmp");
 				}
 			}

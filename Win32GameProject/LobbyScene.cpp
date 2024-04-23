@@ -21,11 +21,13 @@ void LobbyScene::start() {
 	BackGround* bg = new BackGround;
 	bg->SetLocation(Vector3(0, 0, 0));
 	bg->SetResourceID((int)MAIN_BACKGROUND);
+	bg->SetDirectory("MainMap.bmp");
 	Scene::AddGameObject(bg, (int)LAYER_GROUP::BG);
 	for (int i = 0; i < count_y; i++) {
 		for (int j = 0; j < count_x; j++) {
 			Tile* tile = new Tile;
 			tile->SetResourceID(UNOPENED_UNFOCUS);
+			tile->SetDirectory("UnOpenedTile.bmp");
 			tile->SetLocation(Vector3((float)(32 + 32 * j), (float)(96 + 32 * i), 0));
 			Scene::AddObject(tile, j, i);
 		}
@@ -33,11 +35,13 @@ void LobbyScene::start() {
 	BackButton* bbtn = new BackButton;
 	bbtn->SetLocation(Vector3(576, 36, 0));
 	bbtn->SetResourceID(BUTTON_BACK);
+	bbtn->SetDirectory("Back_Button.bmp");
 	bbtn->Setname("Back");
 	Scene::AddGameObject(bbtn, (int)LAYER_GROUP::BUTTON);
 
 	ResetTile* tile = new ResetTile;
 	tile->SetResourceID(SMILE_FACE);
+	tile->SetDirectory("Smile_Face.bmp");
 	tile->SetLocation(Vector3(float(512), float(36), 0));
 	tile->Setname("Reset");
 	Scene::AddGameObject(tile, (int)LAYER_GROUP::BUTTON);
@@ -119,36 +123,36 @@ char* LobbyScene::convertnum(int num) {
 	return convert;
 }
 
-int GetResourceID(int state) {
+const char* GetResourceID(int state) {
 	switch (state) {
 	case 0:
-		return UNOPENED_FOCUS;
+		return "UnOpenedTile_Focus.bmp";
 	case 1:
-		return OPENED_ONE;
+		return "Opened_One.bmp";
 	case 2:
-		return OPENED_TWO;
+		return "Opened_Two.bmp";
 	case 3:
-		return OPENED_THREE;
+		return "Opened_Three.bmp";
 	case 4:
-		return OPENED_FOUR;
+		return "Opened_Four.bmp";
 	case 5:
-		return OPENED_FIVE;
+		return "Opened_Five.bmp";
 	case 6:
-		return OPENED_SIX;
+		return "Opened_Six.bmp";
 	case 7:
-		return OPENED_SEVEN;
+		return "Opened_Seven.bmp";
 	case 8:
-		return OPENED_EIGHT;
+		return "Opened_Eight.bmp";
 	case 10:
-		return UNOPENED_MINE;
+		return "Mine.bmp";
 	case 11:
-		return UNOPENED_UNFOCUS;
+		return "UnOpenedTile.bmp";
 	case 12:
-		return FLAG_POINT;
+		return "Flag.bmp";
 	case 13:
-		return DIED_FACE;
+		return "Died_Face.bmp";
 	case 14:
-		return WIN_FACE;
+		return "Win_Face.bmp";
 	}
 }
 
@@ -216,10 +220,10 @@ bool LobbyScene::check() {
 	int MineFlagCount = 0;
 	for (int y = 0; y < count_y; y++) {
 		for (int x = 0; x < count_x; x++) {
-			if ((Scene::GetObjectState(x, y) == FLAG_POINT) && _MineMap[y][x] == 10) {
+			if (wcscmp(Scene::GetObjectState(x, y), L"Flag.bmp") == 0 && _MineMap[y][x] == 10) {
 				MineFlagCount++;
 			}
-			if ((Scene::GetObjectState(x, y) == UNOPENED_UNFOCUS)) {
+			if (wcscmp(Scene::GetObjectState(x, y), L"UnOpenedTile") == 0) {
 				MineFlagCount++;
 			}
 		}
@@ -233,7 +237,7 @@ void LobbyScene::GameWin()
 	_isPlaying = false;
 	for (int y = 0; y < count_y; y++) {
 		for (int x = 0; x < count_x; x++) {
-			if ((Scene::GetObjectState(x, y) == UNOPENED_UNFOCUS)) {
+			if (wcscmp(Scene::GetObjectState(x, y), L"UnOpenedTile") == 0) {
 				Scene::ChangeObjectState(x, y, GetResourceID(12));
 			}
 		}

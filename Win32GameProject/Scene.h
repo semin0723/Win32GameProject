@@ -31,10 +31,10 @@ protected:
 	void AddUI(UI* obj) { _UIs.push_back(obj); }
 	void AddTimer(Timer* obj) { _Timers.push_back(obj); }
 
-	void ChangeObjectState(int x, int y, int StateID) { _Objects[y][x]->SetResourceID(StateID); }
-	void ChangeResetObjectState(const char* name, int StateID);
+	void ChangeObjectState(int x, int y, const char* state) { _Objects[y][x]->SetDirectory(state); }
+	void ChangeResetObjectState(const char* name, const char* state);
 
-	int GetObjectState(int x, int y) { return _Objects[y][x]->GetResourceID(); }
+	const wchar_t* GetObjectState(int x, int y) { return _Objects[y][x]->GetDirectory(); }
 
 private:
 	Tile* _Objects[20][30];

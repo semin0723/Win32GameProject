@@ -84,9 +84,6 @@
     <ClInclude Include="BackGround.h">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
-    </ClInclude>
     <ClInclude Include="ResetTile.h">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClInclude>
@@ -113,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="GuideText.h">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -152,9 +152,6 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
-    </ClCompile>
     <ClCompile Include="ResetTile.cpp">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
     </ClCompile>
@@ -181,6 +178,9 @@
     </ClCompile>
     <ClCompile Include="GuideText.cpp">
       <Filter>소스 파일\GameObject\LobbySceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>소스 파일\GameObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

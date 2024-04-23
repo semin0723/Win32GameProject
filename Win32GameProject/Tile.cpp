@@ -27,6 +27,7 @@ void Tile::update() {
 					if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {
 						if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 							GameObject::SetResourceID(UNOPENED_FOCUS);
+							GameObject::SetDirectory("UnOpenedTile_Focus.bmp");
 						}
 					}
 					else if ((prevState._left == 1 && curState._left == 0)) {
@@ -36,33 +37,43 @@ void Tile::update() {
 							switch (state) {
 							case 0:
 								GameObject::SetResourceID(UNOPENED_FOCUS);
+								GameObject::SetDirectory("UnOpenedTile.bmp");
 								break;
 							case 1:
 								GameObject::SetResourceID(OPENED_ONE);
+								GameObject::SetDirectory("Opened_One.bmp");
 								break;
 							case 2:
 								GameObject::SetResourceID(OPENED_TWO);
+								GameObject::SetDirectory("Opened_Two.bmp");
 								break;
 							case 3:
 								GameObject::SetResourceID(OPENED_THREE);
+								GameObject::SetDirectory("Opened_Three.bmp");
 								break;
 							case 4:
 								GameObject::SetResourceID(OPENED_FOUR);
+								GameObject::SetDirectory("Opened_Four.bmp");
 								break;
 							case 5:
 								GameObject::SetResourceID(OPENED_FIVE);
+								GameObject::SetDirectory("Opened_Five.bmp");
 								break;
 							case 6:
 								GameObject::SetResourceID(OPENED_SIX);
+								GameObject::SetDirectory("Opened_Six.bmp");
 								break;
 							case 7:
 								GameObject::SetResourceID(OPENED_SEVEN);
+								GameObject::SetDirectory("Opened_Seven.bmp");
 								break;
 							case 8:
 								GameObject::SetResourceID(OPENED_EIGHT);
+								GameObject::SetDirectory("Opened_Eight.bmp");
 								break;
 							case 10:
 								GameObject::SetResourceID(SELECTED_MINE);
+								GameObject::SetDirectory("Opened_Mine.bmp");
 								LobbyScene::GetInstance()->OpenMines(obj_x - 1, obj_y - 3);
 								LobbyScene::GetInstance()->GameOver();
 								break;
@@ -74,10 +85,12 @@ void Tile::update() {
 					else if (prevState._right == 0 && curState._right == 1) {
 						if (GameObject::GetResourceID() == UNOPENED_UNFOCUS) {
 							GameObject::SetResourceID(FLAG_POINT);
+							GameObject::SetDirectory("Flag.bmp");
 							LobbyScene::GetInstance()->SetMineCount(LobbyScene::GetInstance()->GetMineCount() - 1);
 						}
 						else if (GameObject::GetResourceID() == FLAG_POINT) {
 							GameObject::SetResourceID(UNOPENED_UNFOCUS);
+							GameObject::SetDirectory("UnOpenedTile.bmp");
 							LobbyScene::GetInstance()->SetMineCount(LobbyScene::GetInstance()->GetMineCount() + 1);
 						}
 					}
@@ -86,6 +99,7 @@ void Tile::update() {
 			else {
 				if (GameObject::GetResourceID() == UNOPENED_FOCUS && openstate == false) {
 					GameObject::SetResourceID(UNOPENED_UNFOCUS);
+					GameObject::SetDirectory("UnOpenedTile.bmp");
 				}
 			}
 		}
@@ -99,7 +113,7 @@ void Tile::render(HDC mainDC, HINSTANCE hIns) {
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
 	HDC tmp = CreateCompatibleDC(mainDC);
-	MainBitmap = LoadBitmap(hIns, MAKEINTRESOURCE(GameObject::GetResourceID()));
+	MainBitmap = (HBITMAP)LoadImage(NULL, GameObject::GetDirectory(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&myInfo);
 	OldBitmap = (HBITMAP)SelectObject(tmp, MainBitmap);
 

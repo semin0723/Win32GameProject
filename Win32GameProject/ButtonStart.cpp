@@ -22,6 +22,7 @@ void ButtonStart::update()
 		if ((prevState._left == 0 && curState._left == 1) || (prevState._left == 1 && curState._left == 1)) {
 			if (GameObject::GetResourceID() == BUTTON_PLAY) {
 				GameObject::SetResourceID(BUTTON_PLAY_CLICKED);
+				GameObject::SetDirectory("Play_Button_Clicked.bmp");
 			}
 		}
 		else if ((prevState._left == 1 && curState._left == 0)) {
@@ -30,6 +31,7 @@ void ButtonStart::update()
 	}
 	else {
 		GameObject::SetResourceID(BUTTON_PLAY);
+		GameObject::SetDirectory("Play_Button.bmp");
 	}
 }
 
@@ -38,9 +40,7 @@ void ButtonStart::render(HDC mainDC, HINSTANCE hIns)
 	HBITMAP MainBitmap, OldBitmap;
 	BITMAP myInfo;
 	HDC tmp = CreateCompatibleDC(mainDC);
-	//MainBitmap = LoadBitmap(hIns, MAKEINTRESOURCE(GameObject::GetResourceID()));
-	MainBitmap = (HBITMAP)LoadImage(NULL, TEXT("Play_Button.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
-	//TODO: 모든 LoadBitmap으로 만들어진 코드를 LoadImage로 변경해야 합니다.
+	MainBitmap = (HBITMAP)LoadImage(NULL, GameObject::GetDirectory(), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
 	GetObject(MainBitmap, sizeof(BITMAP), (BITMAP*)&myInfo);
 	OldBitmap = (HBITMAP)SelectObject(tmp, MainBitmap);
 

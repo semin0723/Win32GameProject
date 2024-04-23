@@ -66,11 +66,11 @@ void Scene::render(HDC mainDC, HINSTANCE hIns) {
 	}
 }
 
-void Scene::ChangeResetObjectState(const char* name, int StateID)
+void Scene::ChangeResetObjectState(const char* name, const char* state)
 {
 	for (int i = 0; i < _GameObjects[(int)LAYER_GROUP::BUTTON].size(); i++) {
 		if (strcmp(name, _GameObjects[(int)LAYER_GROUP::BUTTON][i]->GetName()) == 0) {
-			_GameObjects[(int)LAYER_GROUP::BUTTON][i]->SetResourceID(StateID);
+			_GameObjects[(int)LAYER_GROUP::BUTTON][i]->SetDirectory(state);
 		}
 	}
 }

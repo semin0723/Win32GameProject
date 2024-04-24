@@ -57,9 +57,13 @@ void LobbyScene::start() {
 	timer->SetLocation(Vector3((float)910, (float)44, 0));
 	Scene::AddTimer(timer);
 	MapInit();
+	_playTime = 0;
+	_isPlaying = false;
 }
 
 void LobbyScene::end() {
+	ResetMap();
+	_isPlaying = false;
 
 }
 

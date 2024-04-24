@@ -46,8 +46,9 @@ void SceneManager::render(HDC mainDC, HINSTANCE hIns) {
 
 void SceneManager::LoadScene(int idx)
 {
-	 _curScene = _Scenes[idx];
-	 _curScene->start();
+	_curScene->end();
+	_curScene = _Scenes[idx];
+	_curScene->start();
 }
 
 // TODO: 씬을 여러개 만들어서 씬 전환 기능을 추가합니다.

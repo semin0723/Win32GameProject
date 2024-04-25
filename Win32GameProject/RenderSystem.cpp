@@ -1,18 +1,16 @@
 #include "RenderSystem.h"
+#include "SceneManager.h"
+#include "globalheader.h"
 
 RenderSystem* RenderSystem::instance = nullptr;
 
 RenderSystem::RenderSystem() {
-	_hInstance = global::GetWinApp().GetInstance();
-	_hWnd = global::GetWinApp().GetWindow();
-	_hdc = GetDC(_hWnd);
-	_backDC = CreateCompatibleDC(_hdc);
-	GetClientRect(_hWnd, &_rect);
 }
 
 RenderSystem::~RenderSystem() {
 	DeleteDC(_backDC);
 	ReleaseDC(_hWnd, _hdc);
+	DeleteObject(_MainBitmap);
 }
 
 RenderSystem* RenderSystem::GetInstance() {
@@ -29,13 +27,25 @@ void RenderSystem::DestroyInstance() {
 	}
 }
 
-void RenderSystem::StartDraw() {
-	_MainBitmap = (HBITMAP)LoadImage(NULL, TEXT("WhiteBoard.bmp"), IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION);
+void RenderSystem::InitRender() {
+	_hInstance = global::GetWinApp().GetInstance();
+	_hWnd = global::GetWinApp().GetWindow();
+	_hdc = GetDC(_hWnd);
+	_backDC = CreateCompatibleDC(_hdc);
+
+	GetClientRect(_hWnd, &_rect);
+	_MainBitmap = CreateCompatibleBitmap(_hdc, global::GetWinApp().GetWidth(), global::GetWinApp().GetHeight());
 	_OldBitmap = (HBITMAP)SelectObject(_backDC, _MainBitmap);
+	
+	DeleteObject(_OldBitmap);
+}
+
+void RenderSystem::StartDraw() {
+	//Rectangle(_backDC, -1, -1, _rect.right + 1, _rect.bottom + 1);
+	PatBlt(_backDC, 0, 0, global::GetWinApp().GetWidth(), global::GetWinApp().GetHeight(), WHITENESS);
+	SelectObject(_backDC, _MainBitmap);
 }
 
 void RenderSystem::EndDraw() {
-	BitBlt(_hdc, _rect.left, _rect.top, _rect.right - _rect.left, _rect.bottom - _rect.top, _backDC, 0, 0, SRCCOPY);
-	SelectObject(_backDC, _OldBitmap);
-	DeleteObject(_MainBitmap);
+	BitBlt(_hdc, 0, 0, global::GetWinApp().GetWidth(), global::GetWinApp().GetHeight(), _backDC, 0, 0, SRCCOPY);
 }

@@ -4,6 +4,7 @@
 #include "InputSystem.h"
 #include "TimeSystem.h"
 #include "RenderSystem.h"
+#include "ResourceManager.h"
 
 namespace game
 {
@@ -17,6 +18,9 @@ namespace game
 	}
 	void GameManager::Initialize()
 	{		
+		RenderSystem::GetInstance()->InitRender();
+		PathManager::GetInstance()->InitPath();
+		ResourceManager::GetInstance()->InitTexture();
 		SceneManager::GetInstance()->InitScene();
 	}
 

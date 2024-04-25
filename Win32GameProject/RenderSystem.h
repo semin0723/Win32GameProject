@@ -18,6 +18,8 @@ public:
 	static RenderSystem* GetInstance();
 	static void DestroyInstance();
 
+	void InitRender();
+
 	void StartDraw();
 	void EndDraw();
 

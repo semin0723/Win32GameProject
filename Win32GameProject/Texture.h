@@ -1,13 +1,13 @@
 #pragma once
-#include "ResourceManager.h"
+#include "GameResource.h"
 #include "RenderSystem.h"
 
-class Texture : public ResourceManager {
+class Texture : public GameResource {
 public:
 	Texture();
 	~Texture();
 
-	void Load(const wchar_t* path);
+	void Load();
 
 	LONG Width() { return _BitInfo.bmWidth; }
 	LONG Height() { return _BitInfo.bmHeight; }

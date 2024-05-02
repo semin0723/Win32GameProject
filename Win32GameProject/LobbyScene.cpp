@@ -63,6 +63,7 @@ void LobbyScene::start() {
 
 void LobbyScene::end() {
 	ResetMap();
+	ResetTimer();
 	_isPlaying = false;
 
 }

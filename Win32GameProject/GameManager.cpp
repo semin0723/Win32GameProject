@@ -19,8 +19,6 @@ namespace game
 	void GameManager::Initialize()
 	{		
 		RenderSystem::GetInstance()->InitRender();
-		PathManager::GetInstance()->InitPath();
-		ResourceManager::GetInstance()->InitTexture();
 		SceneManager::GetInstance()->InitScene();
 	}
 

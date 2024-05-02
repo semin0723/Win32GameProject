@@ -37,7 +37,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
 {
     m_hInstance = hInstance;
 
-    const TCHAR* appName = TEXT("Test Game Framework");
+    const TCHAR* appName = TEXT("Mine Sweeper");
 
     //Step 1: Registering the Window Class
 
@@ -63,7 +63,7 @@ void WinApp::Initialize(HINSTANCE hInstance)
 
     ::AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, FALSE);
 
-    m_hWnd = CreateWindow(appName, appName, WS_OVERLAPPED | WS_SYSMENU,
+    m_hWnd = CreateWindow(appName, appName, WS_OVERLAPPEDWINDOW | WS_SYSMENU,
         SCREEN_START_LEFT, SCREEN_START_TOP, 1056, 846, NULL, NULL, hInstance, NULL);
 
     ShowWindow(m_hWnd, SW_SHOWNORMAL);

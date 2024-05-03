@@ -30,17 +30,17 @@ protected:
 	void AddObject(Tile* obj, int x, int y) { _Objects[y][x] = obj; }
 	void AddGameObject(GameObject* obj, int layerid) { _GameObjects[layerid].push_back(obj); }
 	void AddUI(UI* obj) { _UIs.push_back(obj); }
-	void AddTimer(Timer* obj) { _Timers.push_back(obj); }
+	void AddTimer(Timer* obj) { _Timers=obj; }
 
 	void ChangeObjectState(int x, int y, const char* state) { _Objects[y][x]->SetDirectory(state); }
 	void ChangeResetObjectState(const char* name, const char* state);
 
 	const wchar_t* GetObjectState(int x, int y) { return _Objects[y][x]->GetDirectory(); }
-
+	Timer* _Timers;
 private:
 	Tile* _Objects[20][30];
 	Vector<GameObject*> _GameObjects[(int)LAYER_GROUP::END];
 	Vector<UI*> _UIs;
-	Vector<Timer*> _Timers;
+	
 	const char* _SceneName;
 };

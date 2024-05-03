@@ -65,7 +65,8 @@ void LobbyScene::end() {
 	ResetMap();
 	ResetTimer();
 	_isPlaying = false;
-
+	delete _Timers;
+	_Timers = nullptr;
 }
 
 LobbyScene* LobbyScene::GetInstance()

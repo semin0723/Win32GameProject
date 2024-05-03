@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "TimeSystem.h"
+#include <string>
 
 class Timer : public GameObject {
 public:
@@ -12,6 +13,6 @@ public:
 
 private:
 	int _textlen;
-	wchar_t* _text;
+	std::wstring _text;
 	float _elapseTime;
 };

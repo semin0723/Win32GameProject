@@ -21,6 +21,7 @@ void BackButton::update()
 
 		}
 		else if ((prevState._left == 1 && curState._left == 0)) {
+			
 			SceneManager::GetInstance()->LoadScene((int)SCENE_LAYER::MAIN);
 		}
 	}

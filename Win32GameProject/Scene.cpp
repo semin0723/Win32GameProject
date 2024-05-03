@@ -21,9 +21,7 @@ Scene::~Scene() {
 	for (int i = 0; i < _UIs.size(); i++) {
 		delete _UIs[i];
 	}
-	for (int i = 0; i < _Timers.size(); i++) {
-		delete _Timers[i];
-	}
+	if(_Timers != nullptr) delete _Timers;
 }
 
 void Scene::update() {
@@ -41,9 +39,8 @@ void Scene::update() {
 	for (int i = 0; i < _UIs.size(); i++) {
 		if(_UIs[i]->Enable() == true) _UIs[i]->update();
 	}
-	for (int i = 0; i < _Timers.size(); i++) {
-		if (_Timers[i]->Enable() == true) _Timers[i]->update();;
-	}
+	if (_Timers != nullptr && _Timers->Enable() == true) _Timers->update();;
+	
 }
 
 void Scene::render(HDC mainDC, HINSTANCE hIns) {
@@ -61,9 +58,7 @@ void Scene::render(HDC mainDC, HINSTANCE hIns) {
 	for (int i = 0; i < _UIs.size(); i++) {
 		if (_UIs[i]->Enable() == true) _UIs[i]->render(mainDC, hIns);
 	}
-	for (int i = 0; i < _Timers.size(); i++) {
-		if (_Timers[i]->Enable() == true) _Timers[i]->render(mainDC, hIns);
-	}
+	if (_Timers != nullptr && _Timers->Enable() == true) _Timers->render(mainDC, hIns);
 }
 
 void Scene::ChangeResetObjectState(const char* name, const char* state)
